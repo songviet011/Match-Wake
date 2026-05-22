@@ -62,23 +62,23 @@ export default function StatCard({ stat }) {
   const c = colorMap[stat.color] || colorMap.primary;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all duration-200 group">
+    <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-4 sm:p-6 hover:bg-white/8 transition-all duration-200 group">
       {/* Top accent gradient bar */}
       <div className={`absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r ${c.accent} to-transparent`} />
 
       <div className="flex justify-between items-start mb-4">
-        <div className={`w-11 h-11 ${c.iconBg} rounded-xl flex items-center justify-center`}>
-          <IconComp size={20} className={c.icon} />
+        <div className={`w-10 h-10 sm:w-11 sm:h-11 ${c.iconBg} rounded-xl flex items-center justify-center`}>
+          <IconComp size={18} className={c.icon} />
         </div>
-        <span className={`text-xs font-bold ${stat.changePositive ? c.positive : c.negative}`}>
+        <span className={`text-[10px] sm:text-xs font-bold ${stat.changePositive ? c.positive : c.negative}`}>
           {stat.change}
         </span>
       </div>
 
-      <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">
+      <p className="text-on-surface-variant text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">
         {stat.label}
       </p>
-      <div className="text-3xl font-extrabold text-on-surface">{stat.value}</div>
+      <div className="text-2xl sm:text-3xl font-extrabold text-on-surface">{stat.value}</div>
 
       <div className="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
         <div

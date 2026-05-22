@@ -1,9 +1,10 @@
 // DashboardScreen.jsx - Màn hình Admin Dashboard chính với 6 tabs
 import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Search, Bell, Calendar, Download, Plus, Play, Edit3,
   ToggleLeft, ToggleRight, Eye, AlertTriangle, Lock, Unlock,
-  CheckCircle, XCircle, Filter, Save, RotateCcw,
+  CheckCircle, XCircle, Filter, Save, RotateCcw, Menu,
 } from 'lucide-react';
 import AdminSidebar from '../components/admin/AdminSidebar';
 import StatCard from '../components/admin/StatCard';
@@ -40,7 +41,7 @@ function DashboardTab() {
   return (
     <div className="space-y-8">
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {stats.map(stat => <StatCard key={stat.id} stat={stat} />)}
       </div>
 
@@ -99,7 +100,7 @@ function DashboardTab() {
             </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm min-w-[600px]">
               <thead>
                 <tr className="bg-white/3 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
                   <th className="text-left px-6 py-3">Thời gian</th>
@@ -195,7 +196,7 @@ function UsersTab({ onShowToast }) {
   return (
     <div className="space-y-5">
       {/* Controls */}
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col lg:flex-row gap-3">
         <div className="relative flex-1">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" />
           <input
@@ -206,12 +207,12 @@ function UsersTab({ onShowToast }) {
             className="w-full pl-9 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-sky-500/50 transition-colors"
           />
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none">
           {schools.map(s => (
             <button
               key={s}
               onClick={() => setSchoolFilter(s)}
-              className={`px-3 py-2.5 text-xs font-bold rounded-xl border transition-all whitespace-nowrap
+              className={`px-3 py-2.5 text-xs font-bold rounded-xl border transition-all whitespace-nowrap flex-shrink-0
                 ${schoolFilter === s
                   ? 'bg-sky-500/15 text-sky-300 border-sky-500/30'
                   : 'bg-white/5 text-on-surface-variant border-white/10 hover:bg-white/10'
@@ -221,7 +222,7 @@ function UsersTab({ onShowToast }) {
             </button>
           ))}
         </div>
-        <button className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-on-surface-variant hover:bg-white/10 transition-colors whitespace-nowrap">
+        <button className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-on-surface-variant hover:bg-white/10 transition-colors whitespace-nowrap w-full lg:w-auto">
           <Download size={14} /> Xuất danh sách
         </button>
       </div>
@@ -229,7 +230,7 @@ function UsersTab({ onShowToast }) {
       {/* Table */}
       <div className="rounded-2xl bg-white/5 border border-white/8 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[900px]">
             <thead>
               <tr className="bg-white/3 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
                 <th className="text-left px-4 py-3">ID</th>
@@ -317,12 +318,12 @@ function MatchesTab() {
   return (
     <div className="space-y-5">
       {/* Filter pills */}
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none">
         {filters.map(f => (
           <button
             key={f.id}
             onClick={() => setFilter(f.id)}
-            className={`px-4 py-2 text-xs font-bold rounded-full border transition-all
+            className={`px-4 py-2 text-xs font-bold rounded-full border transition-all whitespace-nowrap flex-shrink-0
               ${filter === f.id
                 ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
                 : 'bg-white/5 text-on-surface-variant border-white/10 hover:bg-white/10'
@@ -335,7 +336,7 @@ function MatchesTab() {
 
       <div className="rounded-2xl bg-white/5 border border-white/8 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[800px]">
             <thead>
               <tr className="bg-white/3 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
                 <th className="text-left px-5 py-3">Mã kèo</th>
@@ -402,15 +403,15 @@ function SoundsTab({ onShowToast }) {
 
   return (
     <div className="space-y-5">
-      <div className="flex justify-end">
-        <button className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-sky-600 text-white text-xs font-bold rounded-xl hover:opacity-90 active:scale-95 transition-all">
+      <div className="flex justify-end w-full">
+        <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-sky-600 text-white text-xs font-bold rounded-xl hover:opacity-90 active:scale-95 transition-all">
           <Plus size={14} /> Thêm âm thanh mới
         </button>
       </div>
 
       <div className="rounded-2xl bg-white/5 border border-white/8 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[700px]">
             <thead>
               <tr className="bg-white/3 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
                 <th className="text-left px-5 py-3">Âm thanh</th>
@@ -516,7 +517,7 @@ function ReportsTab({ onShowToast }) {
       {/* Table */}
       <div className="rounded-2xl bg-white/5 border border-white/8 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[850px]">
             <thead>
               <tr className="bg-white/3 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
                 <th className="text-left px-5 py-3">ID</th>
@@ -591,16 +592,16 @@ function SettingsTab() {
   };
 
   const SectionCard = ({ title, children }) => (
-    <div className="rounded-2xl bg-white/5 border border-white/8 p-6">
+    <div className="rounded-2xl bg-white/5 border border-white/8 p-4 sm:p-6">
       <h3 className="text-base font-extrabold text-on-surface mb-5">{title}</h3>
       <div className="space-y-4">{children}</div>
     </div>
   );
 
   const FieldRow = ({ label, children }) => (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 py-2 sm:py-0">
       <label className="text-sm text-on-surface-variant flex-1">{label}</label>
-      <div className="flex-shrink-0">{children}</div>
+      <div className="flex-shrink-0 w-full sm:w-auto flex justify-start sm:justify-end">{children}</div>
     </div>
   );
 
@@ -609,12 +610,12 @@ function SettingsTab() {
       type="number"
       value={value}
       onChange={e => onChange(Number(e.target.value))}
-      className="w-24 px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg text-sm text-on-surface text-center focus:outline-none focus:border-sky-500/50 transition-colors"
+      className="w-full sm:w-24 px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg text-sm text-on-surface text-left sm:text-center focus:outline-none focus:border-sky-500/50 transition-colors"
     />
   );
 
   const Toggle = ({ value, onChange }) => (
-    <button onClick={() => onChange(!value)} className="transition-all">
+    <button onClick={() => onChange(!value)} className="transition-all cursor-pointer">
       {value
         ? <ToggleRight size={28} className="text-sky-400" />
         : <ToggleLeft size={28} className="text-on-surface-variant/40" />}
@@ -626,7 +627,7 @@ function SettingsTab() {
       type="text"
       value={value}
       onChange={e => onChange(e.target.value)}
-      className="w-56 px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg text-sm text-on-surface focus:outline-none focus:border-sky-500/50 transition-colors"
+      className="w-full sm:w-56 px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg text-sm text-on-surface focus:outline-none focus:border-sky-500/50 transition-colors"
     />
   );
 
@@ -682,7 +683,7 @@ function SettingsTab() {
           <select
             value={cfg.admin.reportAlertLevel}
             onChange={e => update('admin', 'reportAlertLevel', e.target.value)}
-            className="px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg text-sm text-on-surface focus:outline-none focus:border-sky-500/50 transition-colors"
+            className="w-full sm:w-auto px-3 py-1.5 bg-white/8 border border-white/15 rounded-lg text-sm text-on-surface focus:outline-none focus:border-sky-500/50 transition-colors"
           >
             <option value="low">Thấp</option>
             <option value="medium">Trung bình</option>
@@ -692,21 +693,21 @@ function SettingsTab() {
       </SectionCard>
 
       {/* Action buttons */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
         <button
           onClick={handleSave}
-          className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-purple-600 to-sky-600 text-white text-sm font-bold rounded-xl hover:opacity-90 active:scale-95 transition-all"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-purple-600 to-sky-600 text-white text-sm font-bold rounded-xl hover:opacity-90 active:scale-95 transition-all"
         >
           <Save size={15} /> Lưu cấu hình
         </button>
         <button
           onClick={handleReset}
-          className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-on-surface-variant text-sm font-bold rounded-xl hover:bg-white/10 transition-all"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-on-surface-variant text-sm font-bold rounded-xl hover:bg-white/10 transition-all"
         >
           <RotateCcw size={15} /> Khôi phục mặc định
         </button>
         {saved && (
-          <span className="flex items-center gap-1.5 text-sm font-bold text-emerald-400">
+          <span className="flex items-center justify-center sm:justify-start gap-1.5 text-sm font-bold text-emerald-400">
             <CheckCircle size={15} /> Đã lưu cấu hình thành công
           </span>
         )}
@@ -719,9 +720,11 @@ function SettingsTab() {
 // MAIN DASHBOARD SCREEN
 // ============================================================
 export default function DashboardScreen() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [searchQuery, setSearchQuery] = useState('');
   const [toast, setToast] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const showToast = (message, type = 'info') => {
     setToast({ message, type });
@@ -730,6 +733,11 @@ export default function DashboardScreen() {
       setToast(prev => prev && prev.message === message ? null : prev);
     }, 3000);
     return () => clearTimeout(timer);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('match_wake_admin_auth');
+    navigate('/admin-login');
   };
 
   const today = new Date().toLocaleDateString('vi-VN', {
@@ -752,19 +760,34 @@ export default function DashboardScreen() {
     <div className="flex min-h-screen bg-background text-on-background">
       {/* Background orbs */}
       <div className="fixed top-0 right-0 w-96 h-96 bg-purple-500/8 blur-[120px] -z-10 rounded-full pointer-events-none" />
-      <div className="fixed bottom-0 left-64 w-72 h-72 bg-sky-500/8 blur-[100px] -z-10 rounded-full pointer-events-none" />
+      <div className="fixed bottom-0 lg:left-64 left-0 w-72 h-72 bg-sky-500/8 blur-[100px] -z-10 rounded-full pointer-events-none" />
 
       {/* Sidebar */}
-      <AdminSidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      <AdminSidebar 
+        activeTab={activeTab} 
+        onTabChange={setActiveTab} 
+        onLogout={handleLogout} 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+      />
 
       {/* Main content area */}
-      <main className="ml-64 flex-1 min-h-screen flex flex-col">
+      <main className="lg:ml-64 flex-1 min-h-screen flex flex-col min-w-0 w-full">
         {/* Top Header */}
-        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-white/6 px-8 py-4">
+        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-white/6 px-4 md:px-8 py-4">
           <div className="flex items-center justify-between gap-4">
-            <div>
-              <h2 className="text-xl font-extrabold text-on-surface">{tabTitles[activeTab]}</h2>
-              <p className="text-xs text-on-surface-variant mt-0.5">{tabSubtitles[activeTab]}</p>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setIsSidebarOpen(true)}
+                className="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all flex-shrink-0 cursor-pointer"
+                title="Mở menu"
+              >
+                <Menu size={20} />
+              </button>
+              <div>
+                <h2 className="text-base sm:text-xl font-extrabold text-on-surface leading-tight">{tabTitles[activeTab]}</h2>
+                <p className="text-xs text-on-surface-variant mt-0.5 hidden sm:block">{tabSubtitles[activeTab]}</p>
+              </div>
             </div>
             <div className="flex items-center gap-3">
               {/* Search */}
@@ -801,7 +824,7 @@ export default function DashboardScreen() {
         </header>
 
         {/* Page Content */}
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-4 md:p-8">
           {renderContent()}
         </div>
       </main>

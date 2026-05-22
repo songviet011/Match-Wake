@@ -42,7 +42,8 @@ export default function Splash() {
               <img
                 alt="Match & Wake Admin"
                 className="w-32 h-32 md:w-44 md:h-44 z-10 rounded-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdrayz4wsOcBCrvhK_YoDw0bfRSyNhZpi_2TU3anpp6i7sAmkHiL5fgC_oaosrdZmbD1Mz5cekHWq91a9lO-fQ9rYakd0UvORVZ5k7i5VisFheA25rWwT-FaULRyDCn7RdK9Xq59smTADyScHjkM_AU80WM9pwrpT-kHxC1tujKx-jfp8x-YIdH_5ohAvORqWYrkZPP5RBT1yIokJZEQUbuBt0QpmsXj49av7Ui5-yk9kwFaZukw0e8U6XDwt6UNR4uy_i39cqBag"
+                //src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdrayz4wsOcBCrvhK_YoDw0bfRSyNhZpi_2TU3anpp6i7sAmkHiL5fgC_oaosrdZmbD1Mz5cekHWq91a9lO-fQ9rYakd0UvORVZ5k7i5VisFheA25rWwT-FaULRyDCn7RdK9Xq59smTADyScHjkM_AU80WM9pwrpT-kHxC1tujKx-jfp8x-YIdH_5ohAvORqWYrkZPP5RBT1yIokJZEQUbuBt0QpmsXj49av7Ui5-yk9kwFaZukw0e8U6XDwt6UNR4uy_i39cqBag"
+                src="/logo.png"
               />
             </div>
           </div>

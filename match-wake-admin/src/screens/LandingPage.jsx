@@ -38,8 +38,8 @@ function Navbar() {
         {/* Logo */}
         <button onClick={() => scrollTo('#hero')}
           className="flex items-center gap-2.5 flex-shrink-0">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-container to-inverse-primary flex items-center justify-center text-white font-black text-sm shadow-lg">
-            M
+          <div className="w-8 h-8 to-inverse-primary flex items-center justify-center text-white font-black text-sm shadow-lg">
+            <img src="/logo.png" alt="Match & Wake Logo" />
           </div>
           <span className="font-extrabold text-lg text-on-surface tracking-tight">Match &amp; Wake</span>
         </button>
@@ -61,7 +61,7 @@ function Navbar() {
           </button>
           <button
             className="px-4 py-2 text-sm font-bold text-secondary border border-secondary/30 rounded-xl hover:bg-secondary/10 transition-all"
-            onClick={() => navigate('/admin')}>
+            onClick={() => navigate('/admin-login')}>
             Admin →
           </button>
         </div>
@@ -87,7 +87,7 @@ function Navbar() {
               <Download size={15}/> Tải app
             </button>
             <button className="px-4 py-2 text-sm font-bold text-secondary border border-secondary/30 rounded-xl hover:bg-secondary/10 transition-all"
-              onClick={() => { setOpen(false); navigate('/admin'); }}>
+              onClick={() => { setOpen(false); navigate('/admin-login'); }}>
               Admin
             </button>
           </div>
@@ -784,7 +784,7 @@ function FinalCTA() {
             <button className={BTN_PRIMARY + ' text-base px-8 py-4'}>
               <Download size={18}/> Tải app ngay
             </button>
-            <button className={BTN_GHOST + ' text-base px-8 py-4'} onClick={() => navigate('/admin')}>
+            <button className={BTN_GHOST + ' text-base px-8 py-4'} onClick={() => navigate('/admin-login')}>
               <ArrowRight size={18}/> Xem Admin Demo
             </button>
           </div>
@@ -826,7 +826,7 @@ function Footer() {
               { label: 'Cách hoạt động', action: () => scrollTo('#how-it-works') },
               { label: 'Chính sách riêng tư', action: () => {} },
               { label: 'Liên hệ', action: () => {} },
-              { label: 'Admin', action: () => navigate('/admin') },
+              { label: 'Admin', action: () => navigate('/admin-login') },
             ].map(l => (
               <button key={l.label} onClick={l.action}
                 className="text-sm text-on-surface-variant hover:text-on-surface transition-colors">
