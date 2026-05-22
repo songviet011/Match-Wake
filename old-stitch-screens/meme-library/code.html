@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kho Meme - Match &amp; Wake</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #0d112c;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .primary-dawn {
+            background: linear-gradient(135deg, #a078ff 0%, #4cd7f6 100%);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-pill {
+            background: linear-gradient(135deg, #a078ff 0%, #4cd7f6 100%);
+        }
+        /* Custom scrollbar for horizontal categories */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "tertiary-container": "#d97722",
+                        "on-secondary-container": "#00424e",
+                        "tertiary": "#ffb783",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed": "#acedff",
+                        "surface-bright": "#333754",
+                        "primary-container": "#a078ff",
+                        "background": "#0d112c",
+                        "on-primary-fixed": "#23005c",
+                        "surface-container": "#1a1d39",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-error": "#690005",
+                        "on-tertiary": "#4f2500",
+                        "surface-container-highest": "#2f334f",
+                        "surface-dim": "#0d112c",
+                        "on-primary-container": "#340080",
+                        "on-secondary-fixed": "#001f26",
+                        "on-primary": "#3c0091",
+                        "surface-container-high": "#242844",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#003640",
+                        "on-surface": "#dfe0ff",
+                        "error-container": "#93000a",
+                        "on-background": "#dfe0ff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "secondary": "#4cd7f6",
+                        "inverse-primary": "#6d3bd7",
+                        "surface-container-low": "#151935",
+                        "inverse-surface": "#dfe0ff",
+                        "inverse-on-surface": "#2b2e4b",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-tint": "#d0bcff",
+                        "primary": "#d0bcff",
+                        "outline-variant": "#494454",
+                        "on-tertiary-container": "#451f00",
+                        "surface-variant": "#2f334f",
+                        "surface-container-lowest": "#080b27",
+                        "surface": "#0d112c",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "secondary-container": "#03b5d3",
+                        "outline": "#958ea0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "48px",
+                        "section-padding": "32px",
+                        "container-margin": "24px",
+                        "element-gap": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-xl": ["Be Vietnam Pro"],
+                        "display-hero": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-bold": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                        "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img alt="User avatar bubble" class="w-full h-full object-cover" data-alt="A high-quality 3D rendered avatar profile of a cheerful young Vietnamese student wearing modern streetwear. The lighting is vibrant with neon purple and cyan highlights against a soft, blurred studio background. The style is polished, digital art with a friendly and energetic aesthetic consistent with a Gen Z social app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAil6rOZCIJVn-ua9V3964D_Q_dHP3jyvpHkn4iyx2LobrKCNjtMeah1HsHmIlGYoxVR4RG6-0KReY_hnHAP6X-zyQTq-toJSib3Hx-wAJokOtrl88MUZX0UXWXeoI-koo3UaXP4lxV9RMQOaqHiBmH767J8caWFWToeH8LynB8Sf_G4C6qXaM7CPYTnMk4pvZ13JC0eUDYpQj6AYS61PoTmVMjXzWzAuSlIBAEkutAzon7vwOJDRGdobDAQn24zwPG-MjEfK6t5xk"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Match &amp; Wake</h1>
+</div>
+<button class="active:scale-90 transition-all text-primary">
+<span class="material-symbols-outlined text-3xl">notifications</span>
+</button>
+</header>
+<main class="px-6 pb-32">
+<!-- Search Bar Section -->
+<div class="mt-4 mb-6">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary/50 transition-all font-body-md text-body-md" placeholder="Tìm meme đánh thức bạn..." type="text"/>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar mb-8 -mx-6 px-6">
+<button class="flex-none px-6 py-2 rounded-full font-label-bold text-label-bold active-pill text-on-primary shadow-lg shadow-primary/20">Trending</button>
+<button class="flex-none px-6 py-2 rounded-full font-label-bold text-label-bold glass-card text-on-surface-variant hover:text-on-surface transition-colors">Hài hước</button>
+<button class="flex-none px-6 py-2 rounded-full font-label-bold text-label-bold glass-card text-on-surface-variant hover:text-on-surface transition-colors">Kinh dị</button>
+<button class="flex-none px-6 py-2 rounded-full font-label-bold text-label-bold glass-card text-on-surface-variant hover:text-on-surface transition-colors">Anime</button>
+<button class="flex-none px-6 py-2 rounded-full font-label-bold text-label-bold glass-card text-on-surface-variant hover:text-on-surface transition-colors">Game</button>
+</div>
+<!-- Featured Section (Bento Style) -->
+<section class="mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4 text-primary">Nổi bật hôm nay</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 glass-card rounded-lg p-5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-32 h-32 bg-primary/20 blur-3xl group-hover:bg-primary/40 transition-all duration-700"></div>
+<div class="flex items-center justify-between">
+<div>
+<span class="bg-primary/20 text-primary text-[10px] uppercase font-bold px-2 py-1 rounded tracking-widest mb-2 inline-block">Meme of the week</span>
+<h3 class="font-body-xl text-body-xl text-on-surface">"Dậy đi ông cháu ơi"</h3>
+<p class="text-on-surface-variant text-sm mt-1">Được sử dụng 12.5k lần</p>
+</div>
+<button class="w-14 h-14 rounded-full primary-dawn flex items-center justify-center text-white shadow-xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Sound List Section -->
+<section class="flex flex-col gap-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Thư viện Meme</h2>
+<!-- List Item 1 -->
+<div class="glass-card p-4 rounded-lg flex items-center justify-between group hover:bg-white/10 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="A stylized digital illustration of a laughing emoji with high-specular 3D effects, glowing with golden yellow highlights. The art style is inflated and touchable, set against a dark deep navy background with subtle light particles, designed for a Gen Z aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgCin1yUvxlCR2X6_YHvIJljw0P7Me0s80jrugrUvVmffqSdYblwz2J2_G60KEill8ZzmJ51smn7NeMjA6v8CVDppCERgolBArRRH5cu3fCmvHrQ_P0XZkPZsjev-jWKedFtUb5dNDHv_zULfjX6UTtmK-MmX7btkWf0s247nmHOtkQfx1MdxZquKZ7DobjID-Ye11SWfDT794h7bv8VK-7H7Eej7LxtLM_GtifEZ1CbT9Q7cUQhLoXQMafsMH6Z0lSvk5UWEZoEU"/>
+<span class="material-symbols-outlined absolute text-on-surface text-xl">music_note</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Nô bita hãy thức dậy đi</h4>
+<p class="text-on-surface-variant text-xs">Anime • 0:15s</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card hover:bg-primary/20 text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold rounded-full active:scale-95 transition-all">
+                        Chọn
+                    </button>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="glass-card p-4 rounded-lg flex items-center justify-between group hover:bg-white/10 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="A vibrant 3D stylized neon radio icon with glowing teal and magenta light tubes. The icon is rendered with a glossy, inflated specularity, appearing like a tangible digital toy. The background is a layered dark navy depth with glassmorphic blurs, consistent with a modern mobile app library." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7NnEir4ZK89q3GJnbp61xGkwZ_dkvt3PGwgLJUQ_wBtv618C3NVIPYePfsZOIhelWIzOjdc1JEDR4o5MfVNhPUI8chRWp7K4LBg1JLvMideV8Fzo_EQ7lZKVJ6gmdOkOLOq0Yo-tQiylWAkNlUxpa2lWHhkiWCaV1dUtJ2y0Ab9y4MyV4ijtU64XB39nCH7k9ipggpxfspfRCWR3Ct-ohThfOoj1GKxZ_y6rxSGc20X0vJLgpDplCA1dEU_gGusfsSRT166qlpaY"/>
+<span class="material-symbols-outlined absolute text-on-surface text-xl">alarm</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Tiếng chuông ám ảnh</h4>
+<p class="text-on-surface-variant text-xs">Kinh dị • 0:08s</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card hover:bg-primary/20 text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold rounded-full active:scale-95 transition-all">
+                        Chọn
+                    </button>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="glass-card p-4 rounded-lg flex items-center justify-between group hover:bg-white/10 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="A colorful, high-contrast 3D stylized character head representing a funny dog meme. The lighting is punchy with neon lime and cyan accents, highlighting soft fur textures in a stylized digital way. The design is energetic and playful, perfect for a high-energy Gen Z morning app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Ecmir-k_-t59Thonb13FN4my6RTSVTOzTQZq8_uRw3G9zcrY6hvybFur1XlsDLGzVKMSQaGeRRk9hLTPNRMT66rfAIIey6QQR5nwE6TI9j79ZhueUchrWEFKnEhgXiReKvaC5UUukiViRaMVdn-bpEb2n63tNrMfGTpgg-6VPcSnFoYw-wqStKoFtE17sT3ySS4hQwDwQVaH-ojQ5P2ylJCh1PWk8ho38PbLqO7TXR2GCAuMuQ9EGkHURnjhSltz4SzjOO4MF5Q"/>
+<span class="material-symbols-outlined absolute text-on-surface text-xl">tag_faces</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Cười không nhặt được mồm</h4>
+<p class="text-on-surface-variant text-xs">Hài hước • 0:12s</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card hover:bg-primary/20 text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold rounded-full active:scale-95 transition-all">
+                        Chọn
+                    </button>
+</div>
+</div>
+<!-- List Item 4 -->
+<div class="glass-card p-4 rounded-lg flex items-center justify-between group hover:bg-white/10 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="A highly detailed 3D digital asset of a glossy music note suspended in a holographic field. Radiant purples and blues illuminate the scene with soft bloom effects. The aesthetic is clean, modern, and tech-focused, representing a premium digital sound library for a Vietnamese student audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeuknqZY-JiNdnKUC9hk3LsX_m1JhvnRjB6ExDRzlH8ptgteviX9KZteY8NP7qpJXJuruHoMQhhjUL9BBnoCfESHFKLMGP6_oyA8ZjJUUmrTJMJgfGGAqx4GX_6Y50NM4iy4ZIPRI-nHVHVHGx6yQZFGA0TgDkerUQ8ug0pteHop8RoYtct-dFo1HplvXaXUrlCdMvXzN1Dm7VcM_xYlGXXIE3K0oFcEExIOBE0q_c0EWXTYBDFVxUBKQ7Heu8I7Tvr8gwlI2kiX0"/>
+<span class="material-symbols-outlined absolute text-on-surface text-xl">stadium</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Hô vang Việt Nam ơi</h4>
+<p class="text-on-surface-variant text-xs">Trending • 0:20s</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card hover:bg-primary/20 text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold rounded-full active:scale-95 transition-all">
+                        Chọn
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/80 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(139,92,246,0.3)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-label-bold mt-1">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">alarm_add</span>
+<span class="font-label-bold text-label-bold mt-1">Báo thức</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-3 py-1 transition-all duration-300 scale-110 active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_music</span>
+<span class="font-label-bold text-label-bold mt-1">Meme</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-bold text-label-bold mt-1">Xếp hạng</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-label-bold mt-1">Hồ sơ</span>
+</a>
+</nav>
+<!-- Floating Atmosphere Elements (Background Glows) -->
+<div class="fixed top-1/4 -left-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+<div class="fixed bottom-1/3 -right-20 w-80 h-80 bg-secondary/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon && icon.textContent === 'play_circle') {
+                    icon.textContent = 'pause_circle';
+                    setTimeout(() => {
+                        icon.textContent = 'play_circle';
+                    }, 3000);
+                }
+            });
+        });
+
+        // Search highlight interaction
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+</body></html>

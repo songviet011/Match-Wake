@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng nhập | Match &amp; Wake</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #0d112c;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .primary-dawn-gradient {
+            background: linear-gradient(135deg, #a078ff 0%, #4cd7f6 100%);
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom Input Focus Glow */
+        .input-glow:focus {
+            outline: none;
+            border-color: #d0bcff;
+            box-shadow: 0 0 15px rgba(208, 188, 255, 0.2);
+        }
+
+        /* Prevent layout shift on focus */
+        input::placeholder {
+            color: #cbc3d7;
+            opacity: 0.6;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "tertiary-container": "#d97722",
+                        "on-secondary-container": "#00424e",
+                        "tertiary": "#ffb783",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed": "#acedff",
+                        "surface-bright": "#333754",
+                        "primary-container": "#a078ff",
+                        "background": "#0d112c",
+                        "on-primary-fixed": "#23005c",
+                        "surface-container": "#1a1d39",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-error": "#690005",
+                        "on-tertiary": "#4f2500",
+                        "surface-container-highest": "#2f334f",
+                        "surface-dim": "#0d112c",
+                        "on-primary-container": "#340080",
+                        "on-secondary-fixed": "#001f26",
+                        "on-primary": "#3c0091",
+                        "surface-container-high": "#242844",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#003640",
+                        "on-surface": "#dfe0ff",
+                        "error-container": "#93000a",
+                        "on-background": "#dfe0ff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "secondary": "#4cd7f6",
+                        "inverse-primary": "#6d3bd7",
+                        "surface-container-low": "#151935",
+                        "inverse-surface": "#dfe0ff",
+                        "inverse-on-surface": "#2b2e4b",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-tint": "#d0bcff",
+                        "primary": "#d0bcff",
+                        "outline-variant": "#494454",
+                        "on-tertiary-container": "#451f00",
+                        "surface-variant": "#2f334f",
+                        "surface-container-lowest": "#080b27",
+                        "surface": "#0d112c",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "secondary-container": "#03b5d3",
+                        "outline": "#958ea0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-xl": ["Be Vietnam Pro"],
+                        "display-hero": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-bold": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                        "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-center p-container-margin relative overflow-hidden">
+<!-- Background Atmospheric Elements -->
+<div class="floating-orb w-[400px] h-[400px] bg-primary top-[-100px] left-[-100px]"></div>
+<div class="floating-orb w-[300px] h-[300px] bg-secondary bottom-[-50px] right-[-50px]"></div>
+<!-- Main Content Container -->
+<main class="w-full max-w-md z-10">
+<!-- Brand Header -->
+<header class="text-center mb-10">
+<h1 class="font-display-hero text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">Match &amp; Wake</h1>
+<p class="font-body-md text-on-surface-variant">Chào buổi sáng! Cùng thức dậy và kết nối nào. ✨</p>
+</header>
+<!-- Social Login Section -->
+<div class="flex flex-col gap-4 mb-8">
+<button class="glass-card w-full py-4 px-6 flex items-center justify-center gap-3 rounded-xl transition-all active:scale-95 glow-hover">
+<img alt="Google" class="w-6 h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs8yHrwvb0EfuFvASDLJUNHxvgppSfywlVgs3RrWyKw7zR4z9CunPGWh2R3NNCR7j6xZi4XnZC3dmxVflB8UPxZMzBUPgxH6eXvPVNCDu8cTWN12mnSyRSL9T1axfBdfh-ddSsx2R-aTo_mGDQiGat3oyq-hNcQqA-6ljpAf6DVcbjkn15pLfwur1PMDgHSs5r-21MxwbpfZsF8xMxNY6lVUqvt-OF5uJJEr8k-HN3Doz-oSwMWiK4W89wvV3CQ9F5SXqKKE1YLt4"/>
+<span class="font-label-bold text-label-bold text-on-surface">Tiếp tục với Google</span>
+</button>
+<button class="glass-card w-full py-4 px-6 flex items-center justify-center gap-3 rounded-xl transition-all active:scale-95 glow-hover">
+<span class="material-symbols-outlined text-on-surface" style="font-variation-settings: 'FILL' 1;">music_note</span>
+<span class="font-label-bold text-label-bold text-on-surface">Tiếp tục với TikTok</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="flex items-center gap-4 mb-8">
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant/50">HOẶC</span>
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+</div>
+<!-- Login Form -->
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant ml-2" for="email">Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60">mail</span>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-xl py-4 pl-12 pr-4 text-on-surface font-body-md input-glow transition-all" id="email" placeholder="ten@truonghoc.edu.vn" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant ml-2" for="password">Mật khẩu</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60">lock</span>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-xl py-4 pl-12 pr-12 text-on-surface font-body-md input-glow transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+<div class="text-right">
+<a class="text-secondary font-label-bold text-label-bold hover:underline" href="#">Quên mật khẩu?</a>
+</div>
+</div>
+<button class="primary-dawn-gradient w-full py-4 rounded-xl font-label-bold text-on-primary-fixed text-headline-lg-mobile shadow-[0_4px_20px_rgba(139,92,246,0.3)] transition-all active:scale-95 hover:brightness-110 flex items-center justify-center gap-2" type="submit">
+<span>Đăng nhập</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<footer class="mt-10 text-center space-y-4">
+<p class="font-body-md text-on-surface-variant">
+                Chưa có tài khoản? 
+                <a class="text-primary font-bold hover:underline transition-all" href="#">Đăng ký ngay</a>
+</p>
+<div class="pt-8">
+<p class="text-[10px] text-on-surface-variant/40 leading-relaxed max-w-xs mx-auto">
+                    Bằng cách tiếp tục, bạn đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư của Match &amp; Wake.
+                </p>
+</div>
+</footer>
+</main>
+<!-- Interactive Decorative Card (Asymmetric) -->
+<div class="hidden lg:block absolute right-[-100px] top-1/4 glass-card p-6 rounded-lg rotate-12 w-64 transform transition-transform hover:rotate-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container">
+<img alt="User" class="w-full h-full object-cover" data-alt="A close-up portrait of a stylish young Vietnamese student with dyed hair, wearing modern street style clothing. The lighting is neon-inspired with purple and blue hues, creating a vibrant, cinematic digital atmosphere. The background is softly blurred with bokeh lights from a busy city at night, matching the energetic and social morning vibe of the Match and Wake app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz2uniWrRjNzV2wUQRfBYNEj8cvuXSl-RuB_H2V_2Hs06foMJ39J4tvrUX4y1fDbTPmKYQj6-acaQYr2qQnCAPU8fevmV5AAHYPMxp4pg5lCt7rCHBoqEiq5VHJL5HHggh3KlZw494FwYREXyt3eGLLslO_zXGPUQ_vBitGtN6RVy-LGR-PWzCFqA5XpwnM9lss5YZRoCm0bogUa5Q89Qx-RhIVjnQCHtSMtoyFToAFdTLMEXfSjSbDF7gI5D4wtVDVY74fe78o1w"/>
+</div>
+<div>
+<p class="font-label-bold text-on-surface">Minh Anh</p>
+<p class="text-xs text-on-surface-variant">Đang chờ bạn dậy...</p>
+</div>
+</div>
+<div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-2/3"></div>
+</div>
+</div>
+<script>
+        // Micro-interaction for inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = '#d0bcff';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = 'rgba(203, 195, 215, 0.6)';
+            });
+        });
+
+        // Floating orbs animation
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelectorAll('.floating-orb').forEach(orb => {
+                orb.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body></html>

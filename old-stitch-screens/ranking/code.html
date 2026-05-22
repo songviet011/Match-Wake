@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Xếp hạng - Match &amp; Wake</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .podium-gradient {
+            background: linear-gradient(180deg, rgba(208, 188, 255, 0.2) 0%, rgba(208, 188, 255, 0) 100%);
+        }
+        .avatar-glow {
+            filter: drop-shadow(0 0 10px rgba(208, 188, 255, 0.5));
+        }
+        .crown-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md dark:bg-background/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50">
+<img alt="User Avatar" data-alt="A stylized 3D avatar of a friendly Gen Z student with a trendy haircut and modern streetwear. The character is set against a deep navy background with glowing purple rim lighting, reflecting a vibrant midnight tech aesthetic. The style is glossy and polished, resembling high-end digital character design for a social application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC991-HQMhDPAgYZM3TU--7porAyXlfvOjCPU1R0c5JiTsZDNrtbgXV5cOPQwZMAedhOL714jkt6KAwdeNG0NxJNiZvPoZV2havtPBa3nW3hO513uc5M0Km0m9curB-WXQTQJ7-L-rUuJ1pX8-eW57AGf4oiBFaulVniFvUps-cYPD13_Ad03CLSazbJnPI_l2Nei3RwtH-eZXjf5jac1-aNYLd7tb0-niB_ZhLkh2bAFcyttcvylJ-mcsd_ytT_LERzSYzRd1vGQ4"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Match &amp; Wake</h1>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pb-32">
+<!-- Tab Bar -->
+<div class="px-container-margin mt-6">
+<div class="glass-card rounded-full p-1.5 flex gap-1">
+<button class="flex-1 py-3 px-4 rounded-full font-label-bold text-label-bold bg-primary text-on-primary shadow-lg shadow-primary/20 transition-all">Toàn quốc</button>
+<button class="flex-1 py-3 px-4 rounded-full font-label-bold text-label-bold text-on-surface-variant hover:text-on-surface transition-colors">Bạn bè</button>
+</div>
+</div>
+<!-- Podium Section -->
+<section class="mt-12 px-container-margin relative flex justify-center items-end gap-2 h-[300px]">
+<!-- Rank 2 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="relative mb-4">
+<span class="material-symbols-outlined absolute -top-8 left-1/2 -translate-x-1/2 text-secondary text-3xl opacity-80" data-icon="workspace_premium">workspace_premium</span>
+<div class="w-20 h-20 rounded-full border-4 border-secondary overflow-hidden avatar-glow">
+<img alt="Top 2" data-alt="A portrait of a young woman with neon-tipped hair and stylish glasses, rendered as a 3D avatar. She is framed by a glowing cyan circular border. The background is a dark, atmospheric gradient of deep purple and navy, with subtle digital bokeh effects, maintaining the high-energy community vibe of the app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdWvY-0JrbnhTZJ-VCm95oTXg7qHFTl5kwE7mYXx2wPZjv-x2zBLpttky-YD1xws1xbpjP_hukB95ZhmpieFGu4JD2K58okOHQwspCn-0kaxL4kq41m_HE1uVkjBoSvTpvuWbhRQjWBrkqH4TLsfW_m4cFFyP8feOmXEbd9WaCk5YdCsg4VOwO4a9shGoSuZ6fGxa0XxJKBljQh6l86e6aXcU9zwtgNaPN3hdw-Y0twiCuCa53UhbKp8TRvPNFJ4Pna9vW4T5XTMo"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+</div>
+<div class="podium-gradient w-full h-24 rounded-t-lg flex flex-col items-center pt-4 glass-card">
+<p class="font-label-bold text-xs truncate max-w-full px-2">Minh Tú</p>
+<p class="text-secondary font-bold text-sm">4.8k</p>
+</div>
+</div>
+<!-- Rank 1 -->
+<div class="flex-1 flex flex-col items-center z-10">
+<div class="relative mb-6">
+<span class="material-symbols-outlined absolute -top-12 left-1/2 -translate-x-1/2 text-primary text-5xl crown-float" data-icon="crown" style="font-variation-settings: 'FILL' 1;">crown</span>
+<div class="w-28 h-28 rounded-full border-4 border-primary overflow-hidden avatar-glow shadow-[0_0_25px_rgba(208,188,255,0.4)]">
+<img alt="Top 1" data-alt="A premium 3D character avatar of a young man with a confident smile and trendy headset. The avatar features high-specular textures and is illuminated by vibrant violet and electric blue lights. He is centered in a glowing primary-purple ring against a dark midnight-blue background with subtle digital particle effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiwXkBBo9X1E5u-xHE7WX0AmTW5CbjOnCzSibRTlo2Mh41vS9GE-ZM463YYvVxY7EaSGl8SIttyovrPBziNpz4avlBN5-bonCZNMVJyajPTFX984G8xYgqndFmJRkvZLZzG87lCcSUj1q3Pm7jgrPMnhKx6SN4-IiV56NQ6mKZl5eNWBtSRbg__VYDsrYPtNzaHMuV37pola82WcEI7I6Iy7bOmP3QOmWPEvuMDrcgms8lhbCKt_6oXlZX078cfxO-eoeSkdrT774"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">1</div>
+</div>
+<div class="podium-gradient w-full h-36 rounded-t-lg flex flex-col items-center pt-4 glass-card border-primary/30">
+<p class="font-label-bold text-sm truncate max-w-full px-2">Hoàng Nam</p>
+<p class="text-primary font-bold text-lg">5.2k</p>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="relative mb-4">
+<span class="material-symbols-outlined absolute -top-8 left-1/2 -translate-x-1/2 text-tertiary text-3xl opacity-80" data-icon="workspace_premium">workspace_premium</span>
+<div class="w-20 h-20 rounded-full border-4 border-tertiary overflow-hidden avatar-glow">
+<img alt="Top 3" data-alt="A stylish 3D avatar of a young woman with a bob haircut and a bright yellow hoodie. The character glows with soft orange rim lighting. The background is dark navy, creating a strong contrast that makes the character pop, maintaining the vibrant midnight aesthetic with glassmorphism depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_qaKporjpyGpio92VG7VFChZEgPRHVHXXF1jFGYlK9_EloyHi94kuQbu7vmnNfTS8sAzVgxUfCRvK_aNWlIsgi_9-aUUvYbcUnqpMwzN1UVEbwsynQUBqv-5roDoNz7eJqVi7rtbXj0bfRn2k3yfnHeRQGmt7UUnCXgCyYqmJVmVUcOTPKLZ16ZQoGnkY3jUH9Ja-8iw032xalYpFyKnt5YJ_ODMbeq-5MON7PwZhnONC-hUukVlO8OXaC1EEnSgQkSWlJDqEiPw"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-tertiary text-on-tertiary w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+</div>
+<div class="podium-gradient w-full h-20 rounded-t-lg flex flex-col items-center pt-4 glass-card">
+<p class="font-label-bold text-xs truncate max-w-full px-2">Lan Anh</p>
+<p class="text-tertiary font-bold text-sm">4.2k</p>
+</div>
+</div>
+</section>
+<!-- Leaderboard List -->
+<section class="mt-8 px-container-margin space-y-3">
+<div class="flex justify-between items-center px-4 py-2">
+<h2 class="font-label-bold text-on-surface-variant uppercase tracking-wider text-xs">Bảng xếp hạng</h2>
+<span class="text-xs text-secondary">Cập nhật lúc 06:30</span>
+</div>
+<!-- Item 4 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4 active:scale-95 transition-transform">
+<span class="font-bold text-on-surface-variant w-6 text-center">4</span>
+<div class="w-12 h-12 rounded-full border border-white/10 overflow-hidden">
+<img alt="User" data-alt="A portrait-style 3D avatar of a young person with vibrant green hair and a tech-inspired outfit. Soft blue ambient lighting illuminates the face against a deep, dark blue background. The style is clean, modern, and friendly, consistent with a high-end mobile app interface for students." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJu6sBS3V7bp9pkr8NtaLIkP1Yw_VMLhhARMJfOdIBJ3aW-yCPDzmzr3Av9BYAKo39BnG7-kdSbFWboJjxKdmIWv4plK8P8IbPgXWpc0tTPbBonG7dYsQHGkTd-POj70pGHFbnt0dyv87ExSihpvkwyYn_YAnM5GATMAKURayl77JM4HTvXRDXTGHtMGhai4yjB2KHvcNfJB7NPQFQvtEozN4UoQ2pPyMUS0Cy7OCFuKZyDL7rJuXR4ezVJsurlXXBIjyTmkRMi7Y"/>
+</div>
+<div class="flex-1">
+<p class="font-label-bold text-on-surface">Quốc Bảo</p>
+<p class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-orange-400" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                        15 ngày liên tiếp
+                    </p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">3,950</p>
+<p class="text-[10px] text-on-surface-variant">Điểm</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4 active:scale-95 transition-transform">
+<span class="font-bold text-on-surface-variant w-6 text-center">5</span>
+<div class="w-12 h-12 rounded-full border border-white/10 overflow-hidden">
+<img alt="User" data-alt="A 3D character avatar of a young female student with braided hair and a casual sporty jacket. The image has a subtle cyan glow and is set against a dark purple-tinted background. High-quality rendering with soft shadows and glossy highlights typical of a modern digital community app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMVHwtilwwQvqdIQNq2FA2dtHDRjQUNPPj-tGfUl3m-W4GWGL-OqMMmFXx6QGkUbWFn_pky73bx72b-bmHn9K8xjmBU-UeXdxqLDig5ehrPII6RE-NqEIBQzrU0AcNHWMv0AP-yXSr5J691-Nd2SRHhNBg7-WSXFNvw6xf-s5LVaOilPLOVGsfVwEXrFvPt1xRc7hPlAFEcZUDpHqUXA2_-yuak89yeUgJLi1phwKg2z1F3BXkfuEn07XApwDbvguFM-cYuYdtAUI"/>
+</div>
+<div class="flex-1">
+<p class="font-label-bold text-on-surface">Thùy Dương</p>
+<p class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-orange-400" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                        12 ngày liên tiếp
+                    </p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">3,820</p>
+<p class="text-[10px] text-on-surface-variant">Điểm</p>
+</div>
+</div>
+<!-- Item 6 (Current User Context) -->
+<div class="bg-primary-container/20 border border-primary/30 p-4 rounded-xl flex items-center gap-4 scale-[1.02] shadow-xl shadow-primary/10">
+<span class="font-bold text-primary w-6 text-center">124</span>
+<div class="w-12 h-12 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Me" data-alt="A personalized 3D avatar representing the current user, featuring modern digital art style. The character is illuminated with a soft violet light from below, creating a heroic and energetic vibe. The background is a rich midnight blue, with a subtle white rim light to define the silhouette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPFpoKYw1UpoqgaicFPo7JvR8bOzhR9If3iK6BmtTEPWCiiAKfWiZqOPxx8MeSFomfVkiXAO28JrWcQjOpNO7he0ag1YMxsV8NS5fn8TFqCijfYZjoD4_i3i9BWoE5nW1UM96WWylV8Q83oFwaY2hSstWX_tIC5ypmRQwQlYkNgvqPWUIAynMCNyxZb9KZ1ncK_caY3YfgViTwkotx9jsvhQEeSOmgF60dAcUA4Pb7Jh148noMkY_dSAhmwzf_TCA652PAJrDQdYY"/>
+</div>
+<div class="flex-1">
+<p class="font-label-bold text-on-surface">Bạn (Tôi)</p>
+<p class="text-xs text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                        Tăng 5 hạng hôm nay
+                    </p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">1,240</p>
+<p class="text-[10px] text-on-surface-variant">Điểm</p>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4 active:scale-95 transition-transform opacity-70">
+<span class="font-bold text-on-surface-variant w-6 text-center">6</span>
+<div class="w-12 h-12 rounded-full border border-white/10 overflow-hidden">
+<img alt="User" data-alt="A minimalist 3D character of a male student with messy hair and a cozy hoodie. Soft shadows and high-key rim lighting in secondary blue colors create a high-contrast look against the dark theme. The design communicates a friendly and approachable personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaYk0eyd8bICv-W8poB4sEJejLL1MWv14BplcMuoqPy03Sf7LiffUcMu6luqhrzoa6J5OIBwS0f5kFh5qlPIAXt07xEbbULYrsJ1OPk-tTD1lvLR82Qmg6FjmYEMOC81l_YHwJpTXQZb1WjCJh6Iwcnr0X78_NREVbZEFHY0P1yaY3U15wGxDdWfFl3jecaqru6Monx8Yp4aTdiUKssNi-gbzSfUNEkQXw1QHjJwct5w0G8tA1jG_5rrHPfUXbHpSpVdBq_GVyWQU"/>
+</div>
+<div class="flex-1">
+<p class="font-label-bold text-on-surface">Minh Hiếu</p>
+<p class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-orange-400" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                        8 ngày liên tiếp
+                    </p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">3,650</p>
+<p class="text-[10px] text-on-surface-variant">Điểm</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/80 backdrop-blur-xl dark:bg-surface-container/80 border-t border-white/20 shadow-[0_-4px_20px_rgba(139,92,246,0.3)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-[10px] mt-1">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="alarm_add">alarm_add</span>
+<span class="font-label-bold text-[10px] mt-1">Báo thức</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="library_music">library_music</span>
+<span class="font-label-bold text-[10px] mt-1">Meme</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-3 py-1 transition-all duration-300 scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-label-bold text-[10px] mt-1">Xếp hạng</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-bold text-[10px] mt-1">Hồ sơ</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interactions for tabs
+        const tabs = document.querySelectorAll('.glass-card button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/20');
+                    t.classList.add('text-on-surface-variant');
+                });
+                tab.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/20');
+                tab.classList.remove('text-on-surface-variant');
+            });
+        });
+
+        // Add visual interest to list items on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(el => {
+            el.classList.add('transition-all', 'duration-500');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

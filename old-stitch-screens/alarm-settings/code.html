@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Set Alarm | Match &amp; Wake</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .glass {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.1);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .time-picker-gradient {
+        background: radial-gradient(circle at center, rgba(208, 188, 255, 0.15) 0%, transparent 70%);
+      }
+      .neon-glow {
+        box-shadow: 0 0 20px rgba(76, 215, 246, 0.4);
+      }
+      .primary-dawn {
+        background: linear-gradient(135deg, #a078ff 0%, #6d3bd7 100%);
+      }
+      body {
+        background-color: #0d112c;
+        overflow-x: hidden;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        background: #d0bcff;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(208, 188, 255, 0.8);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md text-body-md">
+<!-- Top AppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md dark:bg-background/40">
+<div class="flex items-center gap-3">
+<button class="active:scale-90 transition-all p-2 rounded-full hover:bg-white/10">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Cài đặt báo thức</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" data-alt="A futuristic 3D stylized avatar of a young person wearing tech-wear accessories. The lighting is dramatic with purple and cyan neon highlights against a deep navy background. The character has a friendly expression, rendered in a high-fidelity glossy 3D style suitable for a modern social app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlUtNVpjt1VVOdM6v1yKwGTr2qpc5xWSkF1BimDDMrCE8LRfiM9MrxYh3Xdv-aj-PJ2IAdo6vWQgUx_zTNYxv0ITTPdEAaFgr8HjrILzi0HQrzFuENhL-y5EP8b5nSlNbC_Gx3eZk5W_mAsGQOM9I2BTa9uZkxixCv_GsU5DunJSD2o7DDInosbDLCSv_ZpuhbbZ_zZ-IoD4tPQUJoL0Bx9NirntgyVe42UVvAcVZXkpvvDVgun9hxP-mo8I0HuyV3904Ec7OYZSQ"/>
+</div>
+</header>
+<main class="flex-1 px-container-margin pb-32 flex flex-col items-center">
+<!-- Modern Clock Interface -->
+<section class="w-full max-w-sm mt-8 relative flex flex-col items-center">
+<div class="w-72 h-72 rounded-full glass border-2 border-primary/30 flex items-center justify-center relative time-picker-gradient mb-8">
+<!-- Clock Center -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-1 h-1 bg-primary rounded-full"></div>
+</div>
+<!-- Time Display -->
+<div class="flex flex-col items-center animate-pulse">
+<span class="font-display-hero text-display-hero text-primary tracking-tighter">06:30</span>
+<span class="text-secondary font-label-bold tracking-widest uppercase opacity-80">Sáng</span>
+</div>
+<!-- Clock Visual Accents -->
+<div class="absolute inset-4 border border-dashed border-white/5 rounded-full"></div>
+<div class="absolute top-4 left-1/2 -translate-x-1/2 w-1.5 h-6 bg-primary rounded-full"></div>
+</div>
+<!-- Time Selectors (Pseudo-scroller) -->
+<div class="flex gap-4 w-full justify-center mb-10">
+<div class="glass-card px-6 py-4 rounded-xl flex flex-col items-center">
+<span class="text-on-surface-variant text-sm mb-1">Giờ</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">06</span>
+</div>
+<div class="flex items-center font-headline-lg text-headline-lg text-primary">:</div>
+<div class="glass-card px-6 py-4 rounded-xl flex flex-col items-center border-primary/50 ring-1 ring-primary/20">
+<span class="text-on-surface-variant text-sm mb-1">Phút</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">30</span>
+</div>
+<div class="glass-card px-6 py-4 rounded-xl flex flex-col items-center">
+<span class="text-on-surface-variant text-sm mb-1">Buổi</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">AM</span>
+</div>
+</div>
+</section>
+<!-- Options Container -->
+<section class="w-full max-w-sm space-y-element-gap">
+<!-- Meme Sound Option -->
+<a class="glass-card p-5 rounded-lg flex items-center justify-between group active:scale-[0.98] transition-all" href="#">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">library_music</span>
+</div>
+<div>
+<h3 class="font-label-bold text-on-surface">Chọn âm thanh meme</h3>
+<p class="text-sm text-on-surface-variant">Lofi Cực Chill (Volume 80%)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<!-- Anonymous Match Toggle -->
+<div class="glass-card p-5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">person_search</span>
+</div>
+<div>
+<h3 class="font-label-bold text-on-surface">Ghép đôi ẩn danh</h3>
+<p class="text-sm text-on-surface-variant">Gọi cùng một người lạ ngẫu nhiên</p>
+</div>
+</div>
+<!-- Neon Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-8 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary-container neon-glow"></div>
+</label>
+</div>
+<!-- Repeat days -->
+<div class="flex justify-between w-full pt-4">
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass-card text-on-surface-variant">H</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass text-primary border-primary/40">B</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass text-primary border-primary/40">T</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass text-primary border-primary/40">N</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass text-primary border-primary/40">S</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass-card text-on-surface-variant">B</div>
+<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold glass-card text-on-surface-variant">CN</div>
+</div>
+</section>
+<!-- Save Button -->
+<div class="fixed bottom-24 left-0 right-0 px-container-margin flex justify-center z-40">
+<button class="primary-dawn w-full max-w-sm py-4 rounded-xl font-headline-lg-mobile text-white shadow-[0_10px_25px_rgba(160,120,255,0.4)] active:scale-95 transition-all duration-200">
+                Lưu báo thức
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Contextually Hidden on Task-Focused Screen but generated per instructions) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/80 backdrop-blur-xl dark:bg-surface-container/80 border-t border-white/20 shadow-[0_-4px_20px_rgba(139,92,246,0.3)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-label-bold">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-3 py-1 transition-all duration-300 scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">alarm_add</span>
+<span class="font-label-bold text-label-bold">Báo thức</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="font-label-bold text-label-bold">Meme</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-bold text-label-bold">Xếp hạng</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-label-bold">Hồ sơ</span>
+</a>
+</nav>
+<!-- Background Decorative Elements -->
+<div class="fixed -top-24 -right-24 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -z-10"></div>
+<div class="fixed -bottom-24 -left-24 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full -z-10"></div>
+<script>
+        // Simple micro-interaction for the "clock" feel
+        const clockContainer = document.querySelector('.time-picker-gradient').parentElement;
+        clockContainer.addEventListener('mousemove', (e) => {
+            const rect = clockContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            clockContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        clockContainer.addEventListener('mouseleave', () => {
+            clockContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+    </script>
+</body></html>

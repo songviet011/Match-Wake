@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Match &amp; Wake - Báo Thức</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .bg-primary-dawn {
+            background: linear-gradient(135deg, #a078ff 0%, #4cd7f6 100%);
+        }
+
+        .neon-pulse {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; filter: blur(40px); transform: scale(1); }
+            50% { opacity: 0.7; filter: blur(60px); transform: scale(1.1); }
+        }
+
+        .shake-gentle {
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(2px, -2px); }
+            50% { transform: translate(-2px, 2px); }
+            75% { transform: translate(2px, 2px); }
+            100% { transform: translate(0,0); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.2);
+        }
+
+        body {
+            background-color: #0d112c;
+            overflow: hidden;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background h-screen flex flex-col justify-between overflow-hidden">
+<!-- Atmospheric Neon Background Pulses -->
+<div class="fixed inset-0 z-0">
+<div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-primary/30 neon-pulse"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-secondary/30 neon-pulse" style="animation-delay: -1s;"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex flex-col h-full px-6 py-12 items-center justify-between">
+<!-- Top Section: Matched Partner Alert -->
+<div class="w-full flex flex-col items-center gap-6 animate-bounce-subtle">
+<div class="relative">
+<!-- Glowing Aura for Avatar -->
+<div class="absolute inset-0 bg-secondary blur-2xl opacity-40 rounded-full scale-150"></div>
+<!-- Partner Avatar -->
+<div class="relative w-32 h-32 rounded-full border-4 border-secondary overflow-visible glass-card p-1">
+<img alt="Partner Profile" class="w-full h-full rounded-full object-cover" data-alt="A trendy Gen Z Vietnamese female portrait avatar with stylish glasses and a friendly smile, rendered in a clean digital 2D illustration style. The background is a soft blue, and the character has a fashionable hairstyle. The lighting is soft and even, matching a modern social media app aesthetic with high-contrast neon accents around the circular frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpw2JdbA9hu3hhu7AGDb8jslkkHKkyCayqCADnuE1SPmKK58bLSvwpDtSuOvlJ8TFKeEjlOxacRRpc5FuyIXLlyQkTqJHU_9qoKjQr9RLOhNVa9DKDmrfQd_FDCuV4NdL8mkS7id9Jb2U9zMYfS-XjbQmHCmJr97UMpmy_YcPeC76f7-VUnphxsto1S0OpLBjhOoC-6p4NxKqYl6yUVxgNQGPgxT3ZMTtsNzUBo8XpU1F14mO58rREFz-ODyHUZ0jysB30FpbIps0"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                        Online
+                    </div>
+</div>
+</div>
+<div class="glass-card px-6 py-4 rounded-xl text-center max-w-xs border-t-white/30">
+<p class="font-body-md text-on-surface-variant mb-1">Dậy đi ông cháu ơi!</p>
+<p class="font-label-bold text-secondary text-body-xl">Linh đã dậy 10s trước!</p>
+</div>
+</div>
+<!-- Center Section: Massive Digital Clock -->
+<div class="flex flex-col items-center">
+<div class="font-display-hero text-[120px] leading-none text-white drop-shadow-[0_0_30px_rgba(208,188,255,0.6)] shake-gentle" id="clock">
+                06:00
+            </div>
+<div class="flex items-center gap-2 mt-4 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="alarm">alarm</span>
+<span class="font-label-bold text-lg">BÁO THỨC SÁNG</span>
+</div>
+</div>
+<!-- Bottom Section: The Big Glow Button -->
+<div class="w-full space-y-6">
+<button class="w-full py-8 bg-primary-dawn text-on-primary-fixed rounded-xl font-display-hero text-headline-lg-mobile shadow-[0_20px_50px_rgba(160,120,255,0.4)] active:scale-95 transition-all duration-300 relative group overflow-hidden" onclick="wakeUp()">
+<span class="relative z-10">TÔI ĐÃ DẬY!</span>
+<!-- Internal Glow Effect -->
+<div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+</button>
+<button class="w-full py-4 glass-card rounded-lg text-on-surface font-body-xl flex items-center justify-center gap-3 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="snooze">snooze</span>
+<span>Ngủ thêm 5 phút</span>
+</button>
+</div>
+</main>
+<!-- Interactive Layer: Sound & Vibrations simulation -->
+<div class="fixed inset-0 pointer-events-none transition-colors duration-500" id="interaction-overlay"></div>
+<script>
+        // Update clock in real-time
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Simulate wake up action
+        function wakeUp() {
+            const overlay = document.getElementById('interaction-overlay');
+            overlay.classList.add('bg-white');
+            
+            // Celebration/Transition effect
+            document.body.style.transition = 'all 1s ease-out';
+            document.body.style.backgroundColor = '#6d3bd7';
+            
+            setTimeout(() => {
+                alert('Chúc mừng! Bạn và Linh đã cùng nhau bắt đầu ngày mới thành công! 🔥');
+                window.location.reload(); // Reset for demo
+            }, 600);
+        }
+
+        // Haptic pulse simulation (visual only)
+        setInterval(() => {
+            const clock = document.getElementById('clock');
+            clock.classList.toggle('scale-105');
+        }, 500);
+    </script>
+</body></html>

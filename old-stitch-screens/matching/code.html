@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            overflow: hidden;
+            background-color: #0d112c;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: theme('colors.primary');
+            opacity: 0;
+            animation: pulse 3s infinite;
+        }
+        .pulse-ring:nth-child(2) { animation-delay: 1s; }
+        .pulse-ring:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .floating-star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .orb-gradient {
+            background: radial-gradient(circle, theme('colors.primary-container') 0%, transparent 70%);
+            filter: blur(40px);
+            opacity: 0.4;
+        }
+
+        .primary-dawn {
+            background: linear-gradient(135deg, #a078ff 0%, #4cd7f6 100%);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative overflow-hidden">
+<!-- Ambient Background Effects -->
+<div class="absolute inset-0 z-0 pointer-events-none" id="star-field"></div>
+<div class="orb-gradient absolute -top-20 -left-20 w-80 h-80 rounded-full z-0"></div>
+<div class="orb-gradient absolute top-1/2 -right-20 w-64 h-64 rounded-full z-0"></div>
+<!-- Top AppBar Component -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md dark:bg-background/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-white/20">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A detailed digital illustration of a stylish young adult avatar with a friendly expression. The character has trendy accessories and is set against a vibrant purple and cyan gradient background. The style is clean, modern, and high-quality 3D digital art reflecting a youthful energetic vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXE_UXEesrgGpy2kxyBGhx1PRtoap6HwfctvLkURJuDZimen2vLIXLezY0kkQ11LCKrrkpMe1q3b38M0-IkNfbf_pHtE-vVKS60dczXrVb_eOTuArd2UZZvfiqqIPQibE4eWFJCyiH-Umq1AeyBzY_AZkNhfK01tht-x0B7oGUQZDw3L4lhZptvPyzp69rZaBDM-pZi9IiGft453myW69fYKs73W_YyEiSSlQlnXzo8OkhVSYlWtUAVALZ4wRZU3faoA0zlFlZu3E"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Match &amp; Wake</span>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-container-margin relative z-10">
+<!-- Animated Match Circle -->
+<div class="relative w-64 h-64 flex items-center justify-center mb-12">
+<div class="pulse-ring"></div>
+<div class="pulse-ring"></div>
+<div class="pulse-ring"></div>
+<div class="relative z-10 w-48 h-48 rounded-full glass-card flex flex-col items-center justify-center border-2 border-primary/30 shadow-[0_0_50px_rgba(139,92,246,0.2)]">
+<div class="animate-bounce mb-2">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="w-16 h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3 animate-[loading_2s_infinite_ease-in-out]"></div>
+</div>
+<style>
+                    @keyframes loading {
+                        0% { transform: translateX(-100%); width: 30%; }
+                        50% { width: 60%; }
+                        100% { transform: translateX(350%); width: 30%; }
+                    }
+                </style>
+</div>
+</div>
+<!-- Matching Text Section -->
+<div class="text-center space-y-4 max-w-sm">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+                Đang tìm đối tác cùng dậy...
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant px-4">
+                Đừng ngủ nướng nhé, ai đó đang đợi bạn! Một người bạn mới sẽ cùng bạn bắt đầu ngày mới thật năng lượng.
+            </p>
+</div>
+<!-- Status Chips -->
+<div class="flex flex-wrap justify-center gap-3 mt-10">
+<div class="glass-card px-4 py-2 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-bold text-label-bold text-secondary">2,402 Đang thức</span>
+</div>
+<div class="glass-card px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="history">history</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Chờ ~ 30 giây</span>
+</div>
+</div>
+</main>
+<!-- Footer Action -->
+<div class="px-container-margin pb-32 pt-8 z-10">
+<button class="w-full primary-dawn py-4 rounded-xl font-headline-lg-mobile text-white shadow-[0_8px_30px_rgba(139,92,246,0.4)] active:scale-95 transition-transform duration-150">
+            Hủy tìm kiếm
+        </button>
+</div>
+<!-- Navigation Shell (BottomNavBar) -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/80 backdrop-blur-xl dark:bg-surface-container/80 border-t border-white/20 shadow-[0_-4px_20px_rgba(139,92,246,0.3)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors hover:bg-white/5 active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold">Trang chủ</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-3 py-1 transition-all duration-300 scale-110 active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined" data-icon="alarm_add" style="font-variation-settings: 'FILL' 1;">alarm_add</span>
+<span class="font-label-bold text-label-bold">Báo thức</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors hover:bg-white/5 active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined" data-icon="library_music">library_music</span>
+<span class="font-label-bold text-label-bold">Meme</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors hover:bg-white/5 active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-bold text-label-bold">Xếp hạng</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors hover:bg-white/5 active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-bold text-label-bold">Hồ sơ</span>
+</div>
+</nav>
+<script>
+        // Generate Floating Stars
+        const starField = document.getElementById('star-field');
+        const starCount = 50;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'floating-star';
+            
+            const size = Math.random() * 3 + 1;
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 5;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.setProperty('--duration', `${duration}s`);
+            star.style.animationDelay = `${delay}s`;
+
+            starField.appendChild(star);
+        }
+
+        // Random Dynamic Message Rotation
+        const messages = [
+            "Đừng ngủ nướng nhé, ai đó đang đợi bạn!",
+            "Một người bạn mới đang tìm kiếm bạn...",
+            "Dậy sớm để thành công và kết nối!",
+            "Chỉ còn một chút nữa thôi, kiên nhẫn nhé!",
+            "Chuẩn bị năng lượng cho ngày mới nào!"
+        ];
+        
+        let messageIndex = 0;
+        const messageEl = document.querySelector('p.font-body-md');
+        
+        setInterval(() => {
+            messageEl.style.opacity = 0;
+            setTimeout(() => {
+                messageIndex = (messageIndex + 1) % messages.length;
+                messageEl.innerText = messages[messageIndex];
+                messageEl.style.opacity = 1;
+            }, 500);
+        }, 5000);
+    </script>
+</body></html>

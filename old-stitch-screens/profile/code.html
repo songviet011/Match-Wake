@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hồ sơ | Match &amp; Wake</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.1);
+        }
+        .avatar-glow {
+            box-shadow: 0 0 30px rgba(208, 188, 255, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #0d112c;
+            color: #dfe0ff;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-24 overflow-x-hidden">
+<!-- Top AppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md dark:bg-background/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hồ sơ</h1>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-white/10 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface">settings</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-all active:scale-90 text-error">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</header>
+<main class="px-6 mt-4 space-y-8 max-w-2xl mx-auto">
+<!-- Hero Profile Section -->
+<section class="relative flex flex-col items-center pt-8">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary rounded-full blur opacity-40 group-hover:opacity-60 transition duration-1000"></div>
+<img alt="User Avatar" class="relative w-32 h-32 rounded-full border-4 border-surface-container-high object-cover avatar-glow" data-alt="A high-quality 3D rendered avatar of a young Vietnamese student with trendy glasses and a friendly smile. The character is styled with vibrant midnight lighting, featuring soft purple and teal rim lights that match a futuristic Gen Z aesthetic. The background is a soft-focus digital workspace with glowing holographic elements, maintaining a consistent dark-mode glassmorphic theme with premium depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPOCyiMn9JZ5EVYyu9yvLRK1YPFfOe2ctElq0S6E9HgRnkGhTVrcHv98b0qouo5mENYltxXrkQB7JS4NpbPw1qCoOaGWJXqAPdtEUKUh7YibptwH-dCFycX2h3XJPLbnnThsigxgJPXNljXYTghFSLsecXFeteWgmG1QnmXartDGIq42iol8wHP4YdInyOfz295VfvDM7YFgKtbpsX3LunQ5u8etxMhFLsXERZ9R7-SmBCgzqebxRPyYsDkG-LmjrkViYz5xDCVNk"/>
+<div class="absolute bottom-1 right-1 bg-secondary text-on-secondary-container rounded-full p-1.5 border-2 border-background">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Minh Triết</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">school</span> Sinh viên CNTT
+                </p>
+</div>
+<!-- Achievement Badge -->
+<div class="mt-4 px-4 py-1.5 glass-card rounded-full flex items-center gap-2 border-primary/30">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-bold text-label-bold text-primary">Danh hiệu: Thần Đèn</span>
+</div>
+</section>
+<!-- Stats Overview Bento -->
+<section class="bento-grid">
+<div class="glass-card p-5 rounded-lg flex flex-col justify-between aspect-square">
+<div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-400" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<span class="block font-display-hero text-[32px] leading-none text-on-surface">15</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Ngày Streak</span>
+</div>
+</div>
+<div class="glass-card p-5 rounded-lg flex flex-col justify-between aspect-square">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<span class="block font-display-hero text-[32px] leading-none text-on-surface">98%</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Uy tín</span>
+</div>
+</div>
+</section>
+<!-- History of Matches -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Lịch sử đánh thức</h3>
+<button class="text-primary font-label-bold text-label-bold flex items-center">
+                    Xem tất cả <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Match Item 1 -->
+<div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Match User" class="w-full h-full object-cover" data-alt="A close-up digital portrait of a friendly female student with colorful hair highlights, illuminated by neon purple and pink studio lights. She is laughing and holding a morning coffee mug. The style is hyper-realistic digital art with a glossy, energetic feel, fitting the vibrant midnight aesthetic of the app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD3Ko7OZg0GCPl1ktQjga7E90N40SEGIfKmt3cnfnoj7IxSQnUu3ia_kN-qFOd_dl1GSrk8-l4hbrb63yKZ_6j792iyXPJ57iRf3RFIwn3KfLTfU4MFu1tHQweuXfL1_HwHnnHldMChHfttHvo0LpAyjIkCitW-iRlEdY-kLZ-WxKXpPWRT_UWN42At1ZVi_mnPYYoQ1SrNKUCV0PSrmSpr-x6m9k2eiZ9XpHDPfDLRAdgc_T3HobHyLtzHNSD2WFUFpWZ43Fqjrc"/>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Linh Chi</h4>
+<p class="text-[12px] text-on-surface-variant">Đã đánh thức lúc 06:15 sáng</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-label-bold text-label-bold">+20 XP</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Match Item 2 -->
+<div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Match User" class="w-full h-full object-cover" data-alt="A portrait of a male gamer student wearing futuristic headsets with RGB lighting. The lighting is dominated by deep blues and vibrant teals, casting soft glows on his face. The artistic style is a blend of realistic 3D and cinematic photography, embodying a tech-savvy and community-driven atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGX-CSK1IcFAmF9nlz76LsarC68hRt1Lx8BBjtHe5Bdk8NSuGlc6tO4TBo7vqbSxXC8QLeZgTHF_q1tO0MauVdc6TRYWUJZGi8mPNxClpXpfnwv5kUOlumh3d2OjAS0XlMzxoVEDeKPHRK60Z5PrQjl2K_J_U5JdkKqIYMp2oEWTk545E10B3ObTN0vWRQotJI-ZnH4RmGoYiE31s0zLx2Vcrk2Vl2p8B1N28uX2TGwpJ9vaxuaLM2J3o_1lihCpcqCS92QcTgk_0"/>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Hoàng Nam</h4>
+<p class="text-[12px] text-on-surface-variant">Đã đánh thức lúc 07:30 sáng</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-label-bold text-label-bold">+15 XP</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Preferences -->
+<section class="space-y-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Sở thích</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full glass-card border-secondary/30 text-secondary text-label-bold">Âm nhạc Lo-fi</span>
+<span class="px-4 py-2 rounded-full glass-card border-primary/30 text-primary text-label-bold">Chạy bộ</span>
+<span class="px-4 py-2 rounded-full glass-card border-tertiary/30 text-tertiary text-label-bold">Dậy sớm</span>
+<span class="px-4 py-2 rounded-full glass-card border-white/20 text-on-surface-variant text-label-bold">+ Thêm</span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/80 backdrop-blur-xl dark:bg-surface-container/80 rounded-t-xl border-t border-white/20 shadow-[0_-4px_20px_rgba(139,92,246,0.3)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 transition-transform duration-150 ease-out" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-label-bold">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 transition-transform duration-150 ease-out" href="#">
+<span class="material-symbols-outlined">alarm_add</span>
+<span class="font-label-bold text-label-bold">Báo thức</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 transition-transform duration-150 ease-out" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="font-label-bold text-label-bold">Meme</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors active:scale-95 transition-transform duration-150 ease-out" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-bold text-label-bold">Xếp hạng</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-3 py-1 transition-all duration-300 scale-110 active:scale-95 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-bold text-label-bold">Hồ sơ</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add a subtle particle effect or parallax if desired
+        window.addEventListener('scroll', () => {
+            const avatar = document.querySelector('.avatar-glow');
+            const scrolled = window.pageYOffset;
+            if(avatar) {
+                avatar.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+    </script>
+</body></html>

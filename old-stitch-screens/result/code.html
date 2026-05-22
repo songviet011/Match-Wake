@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match &amp; Wake - Kết Quả</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f2d74e;
+            top: -10px;
+            z-index: 100;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+        .animate-confetti {
+            animation: fall var(--d) linear infinite;
+        }
+        .glow-button {
+            box-shadow: 0 0 20px rgba(160, 120, 255, 0.4);
+        }
+        .avatar-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen overflow-hidden flex flex-col items-center justify-center p-6">
+<!-- Confetti Container -->
+<div class="fixed inset-0 pointer-events-none" id="confetti-container"></div>
+<!-- Top App Bar (From Shared Components) -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/30 border border-primary/20 flex items-center justify-center overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0CQngxIsO60P9i9CkTiTFuecrc7LxqKM2va33AdNh_cNLi3kSm7v1wBOAceg8g-sgaSmQxNoEwRp6w7P_mR-Rx9fLPAOO5U4ZHS0lLB1CbhpMV0M0GfPRe52Ok_r1OnK7rkTjoc-ifkWZvBftfkaKE54YKtIYqjy_Ohu49l2zzjQtJeaoJ43WgnsJ3WzSbG7CMBqFfKrkzoiFd2Ue0riATJ6HLWt0pSgUtPJXG3UOahPPRMjgmheTBDmb8bmpZpXO8L9_eWFR3m0"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Match &amp; Wake</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-md flex flex-col items-center justify-center gap-8 relative">
+<!-- Victory Icon Group -->
+<div class="relative w-full flex justify-center mt-8">
+<div class="absolute -top-12 animate-confetti"></div>
+<div class="glass-card w-40 h-40 rounded-full flex items-center justify-center border-2 border-primary/40 relative z-10 avatar-float shadow-[0_0_50px_rgba(208,188,255,0.3)]">
+<span class="material-symbols-outlined text-primary text-8xl" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<!-- Decorative Glow -->
+<div class="absolute w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
+</div>
+<!-- Headline -->
+<div class="text-center z-10">
+<h1 class="font-display-hero text-display-hero leading-tight mb-2">Bạn là người thắng cuộc!</h1>
+<p class="font-body-xl text-body-xl text-secondary">Chào buổi sáng, chiến binh!</p>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-2 gap-4 w-full z-10">
+<!-- Time Stat -->
+<div class="glass-card p-6 rounded-lg flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-variation-settings: 'FILL' 0;">avg_pace</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Tốc độ</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">45 giây</span>
+<span class="text-[12px] text-secondary font-bold">Dậy sớm hơn!</span>
+</div>
+<!-- Streak Stat -->
+<div class="glass-card p-6 rounded-lg flex flex-col items-center text-center border-primary/30">
+<span class="material-symbols-outlined text-primary mb-2" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Chuỗi (Streak)</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary mt-1">+1 Ngày</span>
+<span class="text-[12px] text-primary-container font-bold">Đang thăng hoa!</span>
+</div>
+<!-- Reputation Reward -->
+<div class="glass-card p-4 rounded-lg flex items-center gap-4 col-span-2 border-l-4 border-l-tertiary">
+<div class="bg-tertiary/20 p-3 rounded-full">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface">Điểm uy tín</h3>
+<p class="text-tertiary font-bold">+10 điểm</p>
+</div>
+<div class="ml-auto flex -space-x-2">
+<img alt="Friend 1" class="w-8 h-8 rounded-full border-2 border-background" data-alt="A hyper-realistic 3D character headshot of a friendly teenage student with colorful hair, wearing trendy headphones, set against a vibrant purple and blue digital background. The lighting is soft and warm, reflecting a morning sun vibe with neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChjx_sV9xIf8gl9IHpxYDo3f4nGktXSTPl9C4WmZvJCAapoGI7U3RAZYKPp1hZNE7xPM1ED749yzDdPk0nlvgrsU_QX_360ssBPjjx5pF0C8PRDC7IkPQfPsexuxP830R43hvfbxLKmtQaw7KmXxCHELbRpIYGyWA7P8xPZCJtEJYyB0f02F1rXJlcPi-07zzAHzDbRuMzCFoldlHpBjATbVOdq7E43PwQ7SWlyMTFVtvHbSaKbYDs82X3Xa19RfSU89mJhS7XDtQ"/>
+<img alt="Friend 2" class="w-8 h-8 rounded-full border-2 border-background" data-alt="A stylized 3D avatar of a young female student with a cheerful expression and stylish glasses. The background features a soft glow of teal and violet, maintaining a high-contrast vibrant midnight aesthetic. The overall mood is optimistic and energetic for a morning community app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAOIJsp0oLZsIpHKGGFGhbgg9KhnjBJ3NGhYMZWBP7tIG49IVHuBUG6_HZQPoKEpqNdb0JhH7kk_tN43nemWrFl6S4nXymSpm2EWEOFisDrss4ZkzUxC07ekPThj92iE_Czt4cHvDg_CoHiRoYr3_O24hpuI8xpdas6js_Z3UyISetlFXsz2o8Om3IyKkKL9lV0Bc_1WiFfFiQPc3HblwMbYsELaahVXWYfujdnngQlv0g8m1IDRUUHfB7vs6I23W_jrpWxvBhh48"/>
+</div>
+</div>
+</div>
+<!-- Social Share Buttons -->
+<div class="w-full flex flex-col gap-3 mt-4 z-10">
+<button class="w-full py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-bold text-label-bold flex items-center justify-center gap-2 glow-button active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">share</span>
+                Khoe với bạn bè ngay!
+            </button>
+<div class="flex gap-3">
+<button class="flex-1 glass-card py-3 rounded-full flex items-center justify-center gap-2 hover:bg-white/10 active:scale-95 transition-all">
+<img alt="" class="w-5 h-5 grayscale invert brightness-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE6AbuTncDvXHUxgbuBOQyHxrpimu5xXT5Y5ruEu7BaiKTr6O7ntYxWaQPyqs4cd_nASs-1qg_i5t3FKviN5HjeLnjfEnsrLm6yutiLaxvVGsj8vBVe_aPyw2dc4KySLzfhbPsdoA9wrVWiDo_i5gWCbPpIQe6JwAO7_9bKvdxuv48FAh-an0yGc6Bz4mqQQfqJ82Ol0392zJ3Aon2sUqVGWC4CBmDXRKpnt5zmLCsgZ9ujR0VCC39BlU93ZpbBY_ltpfL6PqDF6U" style="display:none;"/>
+<span class="font-label-bold text-label-bold">TikTok</span>
+</button>
+<button class="flex-1 glass-card py-3 rounded-full flex items-center justify-center gap-2 hover:bg-white/10 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[#1877F2]">social_leaderboard</span>
+<span class="font-label-bold text-label-bold">Facebook</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (From Shared Components) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(139,92,246,0.3)] rounded-t-xl border-t border-white/20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-label-bold">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">alarm_add</span>
+<span class="font-label-bold text-label-bold">Báo thức</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="font-label-bold text-label-bold">Meme</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-bold text-label-bold">Xếp hạng</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-3 py-1 transition-all duration-300 scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-bold text-label-bold">Hồ sơ</span>
+</a>
+</nav>
+<script>
+        // Confetti Effect
+        const container = document.getElementById('confetti-container');
+        const colors = ['#d0bcff', '#4cd7f6', '#ffb783', '#03b5d3', '#ffffff'];
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti', 'animate-confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.setProperty('--d', (Math.random() * 3 + 2) + 's');
+                confetti.style.opacity = Math.random();
+                confetti.style.transform = `scale(${Math.random()})`;
+                container.appendChild(confetti);
+
+                // Remove after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Run confetti on load
+        window.onload = createConfetti;
+
+        // Re-run confetti every few seconds for celebration vibe
+        setInterval(createConfetti, 4000);
+    </script>
+</body></html>

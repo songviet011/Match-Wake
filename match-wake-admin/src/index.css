@@ -1,0 +1,184 @@
+/* ============================================================
+   index.css - Tailwind v4 với @theme cho Match & Wake Admin
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+  /* Font */
+  --font-family-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+
+  /* === Design System Colors (Match & Wake) === */
+  --color-background: #0d112c;
+  --color-surface: #0d112c;
+  --color-surface-dim: #0d112c;
+  --color-surface-bright: #333754;
+  --color-surface-container-lowest: #080b27;
+  --color-surface-container-low: #151935;
+  --color-surface-container: #1a1d39;
+  --color-surface-container-high: #242844;
+  --color-surface-container-highest: #2f334f;
+  --color-surface-variant: #2f334f;
+  --color-surface-tint: #d0bcff;
+
+  --color-primary: #d0bcff;
+  --color-primary-container: #a078ff;
+  --color-primary-fixed: #e9ddff;
+  --color-primary-fixed-dim: #d0bcff;
+  --color-on-primary: #3c0091;
+  --color-on-primary-container: #340080;
+  --color-on-primary-fixed: #23005c;
+  --color-on-primary-fixed-variant: #5516be;
+  --color-inverse-primary: #6d3bd7;
+
+  --color-secondary: #4cd7f6;
+  --color-secondary-container: #03b5d3;
+  --color-secondary-fixed: #acedff;
+  --color-secondary-fixed-dim: #4cd7f6;
+  --color-on-secondary: #003640;
+  --color-on-secondary-container: #00424e;
+  --color-on-secondary-fixed: #001f26;
+  --color-on-secondary-fixed-variant: #004e5c;
+
+  --color-tertiary: #ffb783;
+  --color-tertiary-container: #d97722;
+  --color-tertiary-fixed: #ffdcc5;
+  --color-tertiary-fixed-dim: #ffb783;
+  --color-on-tertiary: #4f2500;
+  --color-on-tertiary-container: #451f00;
+  --color-on-tertiary-fixed: #301400;
+  --color-on-tertiary-fixed-variant: #713700;
+
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  --color-on-background: #dfe0ff;
+  --color-on-surface: #dfe0ff;
+  --color-on-surface-variant: #cbc3d7;
+  --color-inverse-surface: #dfe0ff;
+  --color-inverse-on-surface: #2b2e4b;
+
+  --color-outline: #958ea0;
+  --color-outline-variant: #494454;
+
+  /* Border radius */
+  --radius: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  background-color: #0d112c;
+  color: #dfe0ff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ============================================================
+   Custom Utility Classes
+   ============================================================ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(208, 188, 255, 0.4)); }
+  50% { filter: drop-shadow(0 0 28px rgba(208, 188, 255, 0.75)); }
+}
+
+.stagger-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* Input / Select reset for dark mode */
+input, select, textarea {
+  color-scheme: dark;
+}
+
+/* ============================================================
+   Custom Utilities - Non-standard opacity values
+   ============================================================ */
+@layer utilities {
+  .bg-white\/3  { background-color: rgba(255, 255, 255, 0.03); }
+  .bg-white\/4  { background-color: rgba(255, 255, 255, 0.04); }
+  .bg-white\/6  { background-color: rgba(255, 255, 255, 0.06); }
+  .bg-white\/7  { background-color: rgba(255, 255, 255, 0.07); }
+  .bg-white\/8  { background-color: rgba(255, 255, 255, 0.08); }
+  .bg-white\/12 { background-color: rgba(255, 255, 255, 0.12); }
+  .bg-white\/15 { background-color: rgba(255, 255, 255, 0.15); }
+
+  .border-white\/3  { border-color: rgba(255, 255, 255, 0.03); }
+  .border-white\/4  { border-color: rgba(255, 255, 255, 0.04); }
+  .border-white\/6  { border-color: rgba(255, 255, 255, 0.06); }
+  .border-white\/7  { border-color: rgba(255, 255, 255, 0.07); }
+  .border-white\/8  { border-color: rgba(255, 255, 255, 0.08); }
+  .border-white\/12 { border-color: rgba(255, 255, 255, 0.12); }
+  .border-white\/15 { border-color: rgba(255, 255, 255, 0.15); }
+
+  .hover\:bg-white\/8:hover  { background-color: rgba(255, 255, 255, 0.08); }
+  .hover\:bg-white\/12:hover { background-color: rgba(255, 255, 255, 0.12); }
+
+  .bg-white\/8  { background-color: rgba(255, 255, 255, 0.08); }
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard | Match &amp; Wake</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #0d112c; color: #dfe0ff; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            background: rgba(3, 181, 211, 0.2);
+            color: #4cd7f6;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- Navigation Drawer (Sidebar) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 bg-surface-container-high border-r border-white/10 w-72 z-50">
+<div class="px-8 mb-12">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tighter">Match &amp; Wake</h1>
+<p class="text-on-surface-variant text-xs opacity-60">ADMIN CONSOLE</p>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center px-6 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-r-full mr-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Quản lý User</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="music_note">music_note</span>
+<span class="font-body-md text-body-md">Kho Meme</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="assessment">assessment</span>
+<span class="font-body-md text-body-md">Báo cáo</span>
+</a>
+</div>
+<!-- Admin Profile Section -->
+<div class="px-6 pt-8 border-t border-white/5 mt-auto">
+<div class="flex items-center gap-4">
+<img alt="Admin Avatar" class="w-12 h-12 rounded-full border-2 border-secondary" data-alt="A professional high-resolution avatar of a young tech administrator with a modern haircut and glasses, designed in a vibrant digital 3D style. The lighting is neon-inspired with purple and cyan rim lights, creating a high-tech vibe that fits a gaming or social app ecosystem. The background is a soft, deep navy blur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAW8EXl__RY-WfSqyxh5TXNt8jJSDNER08-SyCjr9fa_hAOXFuqu5KPyZixhlhFfFeou9cGwuEMDpTLz203dftlVHmljC96MPCrfPIWzItPiO5SHNdR8IJDUGGNTXSlmZzjUa0UJYsocjaxYrTNUdkspwUPHZV9id4jVEgvSJXrCoSGph0R7qLUktapTa1WW-X-QFMDHlb74GdbcxCvIrGdecNvMGV20-XqLFD6U_3wHt685LfR6X5supwmBowAAqQsL0GoWvk5cU"/>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">Admin M&amp;W</h3>
+<p class="text-xs text-on-surface-variant">Quản trị hệ thống</p>
+</div>
+</div>
+<p class="mt-4 text-[10px] text-on-surface-variant/40 tracking-widest text-center uppercase">Version 1.0.2</p>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-72 flex-1 h-screen overflow-y-auto bg-background p-8 relative">
+<!-- Background Orbs -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] -z-10 rounded-full"></div>
+<div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-secondary/10 blur-[100px] -z-10 rounded-full"></div>
+<!-- Header Area -->
+<header class="flex justify-between items-center mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Tổng quan hệ thống</h2>
+<p class="text-on-surface-variant">Chào buổi sáng, Admin. Đây là những gì đang diễn ra hôm nay.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-3 right-3 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Card: Total Users -->
+<div class="glass-card p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-primary-container/20 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<span class="text-secondary text-xs font-bold">+12%</span>
+</div>
+<h4 class="text-on-surface-variant text-sm font-label-bold">Tổng người dùng</h4>
+<div class="text-3xl font-bold text-on-surface mt-1">12,482</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%] shadow-[0_0_10px_#d0bcff]"></div>
+</div>
+</div>
+<!-- Card: Daily Matches -->
+<div class="glass-card p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-transparent opacity-50"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-secondary-container/20 rounded-xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<span class="text-secondary text-xs font-bold">+5.2k</span>
+</div>
+<h4 class="text-on-surface-variant text-sm font-label-bold">Match Hôm Nay</h4>
+<div class="text-3xl font-bold text-on-surface mt-1">8,903</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%] shadow-[0_0_10px_#4cd7f6]"></div>
+</div>
+</div>
+<!-- Card: Reported Memes -->
+<div class="glass-card p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-error to-transparent opacity-50"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-error-container/20 rounded-xl flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="report">report</span>
+</div>
+<span class="text-error text-xs font-bold">-3%</span>
+</div>
+<h4 class="text-on-surface-variant text-sm font-label-bold">Meme bị báo cáo</h4>
+<div class="text-3xl font-bold text-on-surface mt-1">24</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-error w-[15%] shadow-[0_0_10px_#ffb4ab]"></div>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Growth Chart Placeholder -->
+<section class="lg:col-span-2 glass-card p-8 rounded-lg min-h-[400px] flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-body-xl text-body-xl text-on-surface">Tăng trưởng người dùng</h3>
+<select class="bg-white/5 border-none rounded-lg text-sm text-on-surface-variant focus:ring-secondary">
+<option>7 ngày qua</option>
+<option>30 ngày qua</option>
+</select>
+</div>
+<div class="flex-1 w-full relative group">
+<div class="absolute inset-0 flex items-end justify-between px-4 pb-4">
+<!-- Bar chart visualization -->
+<div class="w-8 bg-primary/20 rounded-t-lg transition-all hover:bg-primary h-[30%]"></div>
+<div class="w-8 bg-primary/20 rounded-t-lg transition-all hover:bg-primary h-[45%]"></div>
+<div class="w-8 bg-primary/20 rounded-t-lg transition-all hover:bg-primary h-[40%]"></div>
+<div class="w-8 bg-primary/30 rounded-t-lg transition-all hover:bg-primary h-[60%] shadow-[0_0_15px_rgba(208,188,255,0.3)]"></div>
+<div class="w-8 bg-primary/20 rounded-t-lg transition-all hover:bg-primary h-[55%]"></div>
+<div class="w-8 bg-primary/40 rounded-t-lg transition-all hover:bg-primary h-[80%] shadow-[0_0_20px_rgba(208,188,255,0.4)]"></div>
+<div class="w-8 bg-primary rounded-t-lg h-[95%] shadow-[0_0_25px_rgba(208,188,255,0.6)]"></div>
+</div>
+</div>
+<div class="flex justify-between px-4 mt-4 text-[10px] text-on-surface-variant font-bold tracking-widest">
+<span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+</div>
+</section>
+<!-- Recent Matches -->
+<section class="glass-card p-8 rounded-lg flex flex-col">
+<h3 class="font-body-xl text-body-xl text-on-surface mb-6">Lịch sử Match mới nhất</h3>
+<div class="space-y-4 flex-1">
+<!-- Match Item -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="Close-up portrait of a vibrant cartoon character with short brown hair and an energetic expression, rendered in a 3D clay-like aesthetic. The lighting is dramatic, featuring a warm orange glow from the left and a cool blue shadow on the right, matching the Match &amp; Wake app's high-contrast digital dawn theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbib4CQMneSGi-w9c-7IIBZDmD_6_FdrH8lb-Rh7BeJ-mi1yje0WlxIuw0jOYIuZapOeZhlAMSgM3Us-C95Yf_nKgPApxtnujWyiX8q0XkRBZeSO4KUiIfmqnGmXoqvE9qHXX_07Kfp9obxnhCkUFM9awu6nYl3f4Rgj-R1-oq93VUx8iGd-4VJZ5xxKLe79Dir7_G3fetvf4gh6bM2Jf1AKVjOZA5wL-H0XdJdY2gZR_nLbhkOqgB5ogkWqFYxe6ELf1a5iZNVdQ"/>
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="Close-up portrait of a friendly cartoon female character with long flowing pink hair and a bright smile, rendered in a 3D digital style. The image features soft, glowing highlights and sits against a dark, moody blue background that emphasizes the character's vibrant neon color palette and clean design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1cCPzr2eLLWxzNNYfk99-o1ll1dWJhcfLy0GUBzLVRQ_evzM7HkCaOzoa8cnLIXAHydBgf5lki7E5qAbh9j_qvYuNJ_90slSGL1WFr5n9RoFIIthwd7pq2tJFz7uw-Xg-7m2o1TgYlInXr8mjTnMN23oqVN1-mxRaCsMFgwHt8IjW-NSYdL1s28tY9sBodKIbM4JX-XpTH1da5pliJJPJylHt9F36-FE2Km66Qo5vnKXuP0cpYTUt87AwMmgdpaEEwO1V0EyLCNU"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Tuấn &amp; Lan</p>
+<p class="text-xs text-on-surface-variant">Đã dậy lúc 06:15</p>
+</div>
+<span class="text-[10px] text-secondary font-bold">Vừa xong</span>
+</div>
+<!-- Match Item -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A stylish male digital avatar with a trendy beard and cool glasses, set against a sleek navy and purple background. The visual style is highly polished 3D with realistic texture on the clothes but stylized facial features, creating a professional yet approachable look for a social platform admin dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyZOV0hhzcMMXANx_G5HlBbfSdPxxJTP5a7nDhkjNxBjWQbMpqbX47UqoFsJdv_3Bsjpgn13rMdj3Btgo-4PpW2Jjzm3VUtXSrgJCyF08r7UYPw8yEah9LanYGhn_9jh4tmf5mazia7m-T4KiIxnAXe__4glz6CP2vyL738AEH4-wmdYFk00fabTlj2FgijBUYfRcjSDQNiv-Jy2Bq-ZVvl_IWmwIQ-V3X8EqqAV2jdDeiaPRyAjo2Bnrkbw63EsF0GR_G2ZQcYiI"/>
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A trendy female digital avatar with dyed blue hair and a minimalist headset, designed in a glossy 3D aesthetic. The character is softly lit from above by a white studio light, contrasting with a deep purple ambient glow that reflects the 'Vibrant Midnight' design system of the Match &amp; Wake application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrg6WcHKekVmjUTr2_YKRA_DISFNEB6ez1gm7pXr2fX3Ngqb3AZml_7nUKipGJ-eOwdyrtrnT2S2l0FdXuPKlRle1BN87l9D0HSEFaIi10L4c3AfEg4Hm3elzla3C-auCpSU3dJfhUoRvlqGseWOZ3nV9BZXhjUl89lkpqHw50GMmgsJohA9OWUnZfEF7drCxDLIWV3SJZYrkhqip5SNBu3coAekZYrblW7C8P4u5XtEd_qutAEHpw7mxezY45sHJ_hwelIOveHu8"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Minh &amp; Thảo</p>
+<p class="text-xs text-on-surface-variant">Đã dậy lúc 06:05</p>
+</div>
+<span class="text-[10px] text-on-surface-variant">5p trước</span>
+</div>
+<!-- Match Item -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A cool male avatar with a backwards cap and a friendly face, rendered in high-end digital 3D style with smooth gradients. The color scheme features deep blues and glowing cyan accents, perfectly aligned with a night-to-dawn transition aesthetic. The lighting is soft and volumetric, creating a sense of physical depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrv6umd4xtrrTm9Y2zn9yqAqSsfyGenja9D3SPxODhyVp56SuT3WUTalCwkS81rq6Ii0X8jZp5MZQQZOY_i8PREnHQTOvwNDP8veAQOdTwpG0xGUkVuytQrMAYaNAnH0cX_x5uibxwPDxY4MlecZk602Fa08MDthK4_BcZM_WH6UWEQeoIZBxUBfcEVD72CJNOPC82XwDTGFhdWorCDVWK7sfJfoOdtpPIGgDJkqghuBbOXYLfkTPao66e7lxSFFJDZoirmhY3Qg4"/>
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A beautiful digital character with dark hair and a colorful scarf, presented in a clean, modern 3D illustration style. The background is a solid deep navy, making the character's warm skin tones and vibrant accessory stand out. The lighting is designed to mimic a digital screen's glow, giving the image a futuristic, tech-forward feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWNAWI4bwnD-N3cvg5qn3jN-oVQSAcpdcAiaCn5ogPO69VgGlNBXm_nNa1wTY65dM-apBZwpd9OJRDUpUZwmYeG1xoQ_lSHK6D9aaC6aCsbaz0Ssi4Znn2nFtuR5_g3cr4nuOcxq0Pq_RWzzs3G9hEkRELSKNwVvIbOfLJJo8Ha70pFCuijPzOaxZx2tWwuouML3elMFDaUWWWkUG811bu72sUk07GxlMMB9Hml5x1j8JHCWSvj6c4lyKrG3lbtUwzfbqXvzI5P2g"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Huy &amp; Ngân</p>
+<p class="text-xs text-on-surface-variant">Đã dậy lúc 05:45</p>
+</div>
+<span class="text-[10px] text-on-surface-variant">12p trước</span>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-white/5 rounded-xl border border-white/10 text-on-surface-variant font-label-bold hover:bg-white/10 transition-all">
+                    Xem tất cả
+                </button>
+</section>
+</div>
+<!-- System Logs Table -->
+<section class="mt-8 glass-card rounded-lg overflow-hidden">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h3 class="font-body-xl text-body-xl text-on-surface">Hoạt động hệ thống</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 glass-card rounded-lg text-xs font-bold text-primary border-primary/20">Lọc Log</button>
+<button class="px-4 py-2 glass-card rounded-lg text-xs font-bold text-on-surface-variant">Xuất CSV</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-white/5 text-on-surface-variant uppercase text-[10px] tracking-widest font-bold">
+<tr>
+<th class="px-6 py-4">Thời gian</th>
+<th class="px-6 py-4">Sự kiện</th>
+<th class="px-6 py-4">Đối tượng</th>
+<th class="px-6 py-4">Trạng thái</th>
+<th class="px-6 py-4 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="text-sm text-on-surface divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">08:45:22</td>
+<td class="px-6 py-4 font-medium">Cập nhật Meme mới</td>
+<td class="px-6 py-4">Kho Meme / Trending</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-[10px] font-bold">THÀNH CÔNG</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">08:42:10</td>
+<td class="px-6 py-4 font-medium">Báo cáo nội dung</td>
+<td class="px-6 py-4">User ID: 98212</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-error/20 text-error rounded-full text-[10px] font-bold">CHỜ XỬ LÝ</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">08:30:05</td>
+<td class="px-6 py-4 font-medium">Backup dữ liệu</td>
+<td class="px-6 py-4">Database Node A</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-[10px] font-bold">THÀNH CÔNG</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Spacer for bottom padding -->
+<div class="h-12"></div>
+</main>
+<script>
+        // Simple micro-interaction for active scaling
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Atmospheric mouse glow effect
+        const main = document.querySelector('main');
+        main.addEventListener('mousemove', (e) => {
+            const rect = main.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Note: Creating a dynamic gradient orb following cursor for glassmorphism immersion
+            // main.style.setProperty('--mouse-x', `${x}px`);
+            // main.style.setProperty('--mouse-y', `${y}px`);
+        });
+    </script>
+</body></html>

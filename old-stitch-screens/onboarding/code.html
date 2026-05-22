@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match &amp; Wake - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "tertiary-container": "#d97722",
+                    "on-secondary-container": "#00424e",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#acedff",
+                    "surface-bright": "#333754",
+                    "primary-container": "#a078ff",
+                    "background": "#0d112c",
+                    "on-primary-fixed": "#23005c",
+                    "surface-container": "#1a1d39",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "surface-container-highest": "#2f334f",
+                    "surface-dim": "#0d112c",
+                    "on-primary-container": "#340080",
+                    "on-secondary-fixed": "#001f26",
+                    "on-primary": "#3c0091",
+                    "surface-container-high": "#242844",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#003640",
+                    "on-surface": "#dfe0ff",
+                    "error-container": "#93000a",
+                    "on-background": "#dfe0ff",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary": "#4cd7f6",
+                    "inverse-primary": "#6d3bd7",
+                    "surface-container-low": "#151935",
+                    "inverse-surface": "#dfe0ff",
+                    "inverse-on-surface": "#2b2e4b",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline-variant": "#494454",
+                    "on-tertiary-container": "#451f00",
+                    "surface-variant": "#2f334f",
+                    "surface-container-lowest": "#080b27",
+                    "surface": "#0d112c",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-container": "#03b5d3",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "section-padding": "32px",
+                    "container-margin": "24px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-xl": ["Be Vietnam Pro"],
+                    "display-hero": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .primary-dawn {
+            background: linear-gradient(135deg, #d0bcff 0%, #4cd7f6 100%);
+            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.6);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glow {
+            background: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.2) 0%, rgba(13, 17, 44, 0) 60%);
+        }
+        .squishy-active:active {
+            transform: scale(0.92);
+            transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col overflow-hidden bg-glow selection:bg-primary/30">
+<!-- Top AppBar (Simplified for Onboarding) -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-md no-border bg-transparent">
+<div class="font-display-hero text-headline-lg-mobile bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Match &amp; Wake</div>
+<button class="text-on-surface-variant/70 font-label-bold text-label-bold hover:text-primary transition-colors">Bỏ qua</button>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-container-margin pb-12 overflow-y-auto">
+<!-- Illustration Container -->
+<div class="relative w-full max-w-sm aspect-square mb-12 flex items-center justify-center">
+<!-- Background Decorative Glow -->
+<div class="absolute inset-0 bg-primary/10 blur-[80px] rounded-full scale-110 animate-pulse"></div>
+<!-- Main Illustration Card -->
+<div class="relative w-full h-full glass-card rounded-xl flex items-center justify-center p-6 overflow-visible">
+<img alt="Students high-fiving across screens" class="w-full h-full object-contain rounded-lg drop-shadow-[0_20px_50px_rgba(76,215,246,0.3)]" data-alt="A vibrant digital illustration of two cheerful Gen Z Vietnamese students, one male and one female, high-fiving each other through their glowing smartphone screens. The style is modern 3D claymorphism with glossy finishes. They are dressed in fashionable streetwear with neon accents. The background is a deep midnight navy with floating holographic alarm clock icons and musical notes, lit by electric blue and soft purple volumetric lighting that creates a high-energy, morning-ready atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjBKOA4ntFhMxaY0hx2ssKGAxf8YBIiBmvHaUeIpdvL_OAIaNwiE9PCtGsr9XP4-ViF5X3UHzaTsr1r_rgDl0UF_zrfhPxfe_PviClGw_JuWXSBssmgpbqMsZnkBAjArimFodTDtRIcdc3gZhCpdA-MvI_E6II9Lk5UYZu7JS66f2Hrw-USkuERLeqIVCOv7c52emg_oi_Y1Si9zg5--lPMYOQyFE1wYBQKUSGsevnRhydSH1l3l1LYpZhaRVWWJBmSi28hcU8l5M"/>
+</div>
+</div>
+<!-- Content Section -->
+<div class="text-center max-w-md w-full space-y-6">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight leading-tight">
+                Thách thức dậy sớm
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed px-4">
+                Ghép đôi ngẫu nhiên và cùng nhau bắt đầu ngày mới đầy năng lượng.
+            </p>
+</div>
+<!-- Pagination Indicators -->
+<div class="flex gap-3 mt-10">
+<div class="h-2 w-8 rounded-full primary-dawn transition-all duration-300"></div>
+<div class="h-2 w-2 rounded-full bg-surface-container-highest transition-all duration-300"></div>
+<div class="h-2 w-2 rounded-full bg-surface-container-highest transition-all duration-300"></div>
+</div>
+</main>
+<!-- Bottom Actions -->
+<footer class="p-container-margin w-full max-w-lg mx-auto mb-4">
+<button class="w-full py-4 rounded-full primary-dawn font-label-bold text-label-bold text-on-primary-fixed uppercase tracking-widest squishy-active flex items-center justify-center gap-2 group" id="next-btn">
+            Tiếp tục
+            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+<!-- Background Atmospheric Elements -->
+<div class="fixed top-1/4 -left-20 w-64 h-64 bg-secondary/10 blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -right-20 w-80 h-80 bg-primary/10 blur-[120px] pointer-events-none"></div>
+<script>
+        // Micro-interaction for the button
+        const nextBtn = document.getElementById('next-btn');
+        nextBtn.addEventListener('click', () => {
+            // Simulate navigation feedback
+            nextBtn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-on-primary-fixed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            `;
+            setTimeout(() => {
+                // In a real app, logic for step transition goes here
+                location.reload(); 
+            }, 800);
+        });
+
+        // Parallax effect for the illustration
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.glass-card');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+    </script>
+</body></html>
